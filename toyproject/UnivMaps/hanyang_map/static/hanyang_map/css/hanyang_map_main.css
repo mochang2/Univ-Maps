@@ -1,0 +1,103 @@
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+
+.above-menu-wrapper{
+    padding-top:0;
+    padding-bottom:0;
+    background-color: rgb(45,75,122);
+    display:flex;
+    justify-content: space-between;
+}
+.dot-wrapper{
+    margin-left: 1.6rem;
+    width: 72px;
+    height: 28px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+.dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+}
+.red-dot{
+    background-color: #FF6157;
+}
+.yellow-dot{
+    background-color: #FEBC2E;
+}
+.green-dot{
+    background-color: #2ACD43;
+}
+
+.abbreviated-menu{
+    display: none;
+    padding: 0 .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: .25rem;
+    transition: box-shadow .15s ease-in-out;
+    position:absolute;
+    right:32px;
+    top: 2.5px;
+}
+.fa-bars {
+  color: white;
+}
+
+.right-menu{
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-right: 1.6rem;
+}
+.menuLink {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    padding-right: 30px;
+}
+.menuLink:hover{
+    color:white;
+}
+
+.title-wrapper{
+    background-color: #fffeee;
+}
+.title{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:large;
+}
+
+.map-wrapper{
+    background-color: #eeefff;
+    display: flex;
+    justify-content: center;
+}
+.hy_campus{
+    width: 1096px;
+    height: 910px;
+}
+
+.station-info-wrapper{
+    background-color:grey;
+}
+
+.finding-comfortable-way{
+    background-color: #eeffff;
+}
+
+
+/*responsive web*/
+@media screen and (max-width: 1280px){
+    .abbreviated-menu{
+        display: block;
+    }
+}
