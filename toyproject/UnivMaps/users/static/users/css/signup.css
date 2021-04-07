@@ -73,17 +73,20 @@ active: 글씨 한양대색
     justify-content: space-between;
 }
 .hide-and-show-terms{
-    margin-left: 2%;
+    margin-left: 10%;
     display:flex;
     align-items: center;
-    background-color: #2ACD43;
+    background-color: #e5e5e5;
+    color: rgb(45,75,122);
     cursor: pointer;
 }
 h3{
     margin: 0 2px 0 2px;
 }
 .check-box{
-    margin-right: 3%;
+    margin-right: 10%;
+    width: 21px;
+    height: 21px;
 }
 .agreement-content-wrapper{
     display:flex;
@@ -93,5 +96,31 @@ h3{
     display: none;
     width: 80%; 
     height: 150px;
+    border: 1px #e5e5e5 solid;
+    padding: 10px;
     overflow: auto;
+}
+
+.btn-wrapper{
+    margin: 15px 20% 0 20%;
+}
+.btn-form{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn{
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+.ok-btn{
+    background-color: rgb(246,147,33);
+    color: white;
+}
+.goback-btn{
+    border: 1px #e5e5e5 solid;
+    color:black;
+}
+.goback-btn:hover{
+    cursor: pointer;
 }

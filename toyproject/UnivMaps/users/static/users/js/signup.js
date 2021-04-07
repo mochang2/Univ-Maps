@@ -1,6 +1,7 @@
 (function (window, document, undefined) {
     window.onload = function () {
         termsListener()
+        goback()
     };
 
     function termsListener() {
@@ -17,6 +18,14 @@
                 faArrow.style.transform = "rotate(1turn)"
                 agreementContent.style.display = "none"
             }
+        })
+    }
+
+    function goback() {
+        const goBackBtn = document.querySelector(".goback-btn")
+        console.log(goBackBtn)
+        goBackBtn.addEventListener("click", (Event) => {
+            history.go(-1)
         })
     }
 
