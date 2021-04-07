@@ -83,6 +83,11 @@ active: 글씨 한양대색
 h3{
     margin: 0 2px 0 2px;
 }
+.check-agreement{
+    display:flex;
+    align-items: center;
+    width: 20%;
+}
 .check-box{
     margin-right: 10%;
     width: 21px;
@@ -103,8 +108,6 @@ h3{
 
 .btn-wrapper{
     margin: 15px 20% 0 20%;
-}
-.btn-form{
     display: flex;
     justify-content: space-evenly;
 }
