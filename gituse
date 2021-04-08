@@ -1,0 +1,57 @@
+<.gitignore 사용법>
+fileName.js : 해당 파일
+/fileName.js : 현재 디렉터리에 있는 이 파일만
+node_module/ : 해당 폴더 이하
+! : 예외
+*.txt : 특정 확장자
+
+
+<git, github 사용 명령어>
+working dir(vs code) -> (add),stage한다고 표현 -> index -> (commit) ->
+local repository -> (push) -> remote repository
+
+
+Untracked --- Unmodified --- Modified --- Staged(뒤에 세 단계는 Tracked)
+-----------------add the file--------------->
+                  --edit the file->
+                                 ---stage the file->
+<-remove the file--
+                   <----------------------commit
+
+
+
+git init : 깃 시작
+git clone ~~ : 깃 다른 사람과 협업할 때 사용
+git config --global user.name "이창모"
+git config --global user.email "qjsrodksro@gmail.com"
+git remote add origin url : 깃헙 레포지토리를 이 폴더의 origin이란 이름의 원격 저장소로 쓰겠음
+
+git status : 깃 상태를 볼 때
+git log : 깃 로깅 상태 출력
+git remote : 깃 원격 저장소 명 알려줌
+git fetch : 깃헙 소식을 받아옴
+
+git add . : index에 깃 추가
+git commit -a : add 없이 commit 가능
+git commit -m "내용" : comment를 달아서 깃 커밋(로컬 레포에 추가)
+git push 저장소명(origin) 브랜치명(master) : 원격 저장소에 푸시
+git pull 저장소명(origin) 브랜치명(master) : 원격 저장소에 풀(내가 버전이 뒤처져있을 때)
+
+git reset <git log에서 뜨는 id 6자리> --hard : 강제로 과거로 돌림
+(원래 reset 한 것을 원격에서는 다시 돌릴 수 없음)
+cf) revert는 뒤로가기 정도(다시 앞으로 가는 게 가능)(log를 새로 만듦)
+git push origin +master : reset 쓰고 원격 저장소에 강제로 푸시
+
+git branch 브랜치명 : 브랜치명을 가진 브랜치를 만듦
+git branch : 현재 브랜치들 확인 가능
+git branch -a : local, remote 브랜치를 다 볼 수 있음
+git branch -D 브랜치명 : 로컬에서 브랜치 삭제
+git push 저장소명(origin) --delete 브랜치명 : 원격에서 브랜치 삭제
+
+git checkout 브랜치명 : 이 브랜치로 넘어가서 작업하겠다
+git checkout -b 브랜치명 : 이 브랜치를 만들고 그 브랜치로 넘어감
+git checkout -b 브랜치명 저장소명(origin)/브랜치명 : 원격 저장소에 있는 브랜치를 받아와 로컬에서 브랜치를 만들고 그 브랜치로 넘어감
+
+git merge 변화가있는브랜치명 : 변화를 반영할 곳, 즉 master 브랜치에서 입력해야 함, 브랜치의 변화가 반영됨
+git log --graph --all --decorate : 브랜치의 변화를 시각화해서 보여줌
+git rebase 변호가있는브랜치명 : 브랜치들의 변화를 한 줄로 합쳐줌
