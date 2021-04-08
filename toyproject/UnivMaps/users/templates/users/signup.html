@@ -28,11 +28,12 @@
             <form action="" method="GET" enctype="application/x-www-form-urlencoded" id="join-form">
                 <div class="step">
                     <ul class="status-bar">
-                        <li class="active first-step-sign"><label><b>약관동의</b></label></li>
+                        <!-- 일정 조건이 되면 active css 적용이 되도록 설정 추가 필요 -->
+                        <li class="first-step-sign"><label><b>약관동의</b></label></li>
                         <i class="fas fa-arrow-alt-circle-right first-right-arrow"></i>
-                        <li class="active second-step-sign"><label><b>회원정보</b></label></li>
+                        <li class="second-step-sign"><label><b>회원정보</b></label></li>
                         <i class="fas fa-arrow-alt-circle-right second-right-arrow"></i>
-                        <li class="active third-step-sign"><label><b>가입완료</b></label></li>
+                        <li class="third-step-sign"><label><b>가입완료</b></label></li>
                     </ul>
                 </div>
                 <div class="terms">
@@ -43,7 +44,8 @@
                         </div>
                         <div class="check-agreement">
                             <h5>약관 동의</h5>
-                            <input class="check-box" type="checkbox" name="agree-with-terms" value="agree-with-terms">
+                            <input class="check-box" type="checkbox" name="agree-with-terms" value="agree-with-terms"
+                                required>
                         </div>
                     </div>
                     <div class="agreement-content-wrapper">
@@ -71,12 +73,8 @@
 
                 </div>
                 <div class="btn-wrapper">
-                    <a href="#" class="ok-btn btn">
-                        동의하기
-                    </a>
-                    <a class="goback-btn btn">
-                        돌아가기
-                    </a>
+                    <button class="ok-btn btn">동의하기</button>
+                    <button class="goback-btn btn">돌아가기</button>
                 </div>
             </form>
         </div>

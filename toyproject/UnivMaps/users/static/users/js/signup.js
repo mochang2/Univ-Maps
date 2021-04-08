@@ -1,6 +1,7 @@
 (function (window, document, undefined) {
     window.onload = function () {
         termsListener()
+        agree()
         goback()
     };
 
@@ -21,9 +22,18 @@
         })
     }
 
+    function agree() {
+        const okBtn = document.querySelector(".ok-btn")
+        const checkBox = document.querySelector(".check-box")
+        okBtn.addEventListener("click", (Event) => {
+            if (checkBox.checked == false) {
+                alert("약관에 동의해주세요.")
+            }
+        })
+    }
+
     function goback() {
         const goBackBtn = document.querySelector(".goback-btn")
-        console.log(goBackBtn)
         goBackBtn.addEventListener("click", (Event) => {
             history.go(-1)
         })
