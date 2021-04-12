@@ -48,7 +48,7 @@ body{
 
 .inner-wrapper{
     width: 50%;
-    height: 80%;
+    height: 99%; /*inner-wrapper의 height 회원가입 2단계 후 고쳐야 될 부분*/
     background-color: white;
 }
 
@@ -110,24 +110,24 @@ h3{
     margin: 15px 20% 0 20%;
     display: flex;
     justify-content: space-evenly;
-    font-size: 15px;
+
 }
 .btn{
     padding: 10px 15px 10px 15px;
-
+    font-size: 15px;
     text-decoration: none;
     text-decoration-style: none;
 }
 .ok-btn{
     background-color: rgb(246,147,33);
     color: white;
-    border: none;
+    border: 1px rgb(246,147,33) solid;
 }
 .goback-btn{
     background-color: white;
     border: 1px #e5e5e5 solid;
     color:black;
 }
-.goback-btn:hover{
+.btn:hover{
     cursor: pointer;
 }

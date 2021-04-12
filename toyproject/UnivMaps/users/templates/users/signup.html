@@ -10,8 +10,12 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 
     <title>회원가입 페이지</title>
+    {% if token_url %}
+    <script type="text/javascript" src="{% static 'users/js/signup2.js' %}"></script>
+    {% else %}
+    <script type="text/javascript" src="{% static 'users/js/signup1.js' %}"></script>
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/css/signup.css' %}">
-    <script type="text/javascript" src="{% static 'users/js/signup.js' %}"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
@@ -23,9 +27,13 @@
             <div class="green-dot dot"></div>
         </div>
     </div>
+
+
     <div class="outter-wrapper">
         <div class="inner-wrapper">
+
             <form action="" method="GET" enctype="application/x-www-form-urlencoded" id="join-form">
+
                 <div class="step">
                     <ul class="status-bar">
                         <!-- 일정 조건이 되면 active css 적용이 되도록 설정 추가 필요 -->
@@ -36,6 +44,13 @@
                         <li class="third-step-sign"><label><b>가입완료</b></label></li>
                     </ul>
                 </div>
+
+                {% if token_url %}
+
+                <span>test</span>
+
+                {% else %}
+
                 <div class="terms">
                     <div class="inner-terms">
                         <div class="hide-and-show-terms">
@@ -74,11 +89,13 @@
                 </div>
                 <div class="btn-wrapper">
                     <button class="ok-btn btn">동의하기</button>
-                    <button class="goback-btn btn">돌아가기</button>
+                    <a class="goback-btn btn">돌아가기</a>
                 </div>
+                {% endif %}
             </form>
         </div>
-        <span>test</span>
+
+
     </div>
 </body>
 

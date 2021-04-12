@@ -3,6 +3,7 @@
         termsListener()
         agree()
         goback()
+        active()
     };
 
     function termsListener() {
@@ -35,8 +36,13 @@
     function goback() {
         const goBackBtn = document.querySelector(".goback-btn")
         goBackBtn.addEventListener("click", (Event) => {
-            history.go(-1)
+            location.href = "/hanyang_map"
         })
+    }
+
+    function active() {
+        const stepSingLi = document.querySelectorAll("li")[0]
+        stepSingLi.classList.add("active")
     }
 
 })(window, document, undefined);
