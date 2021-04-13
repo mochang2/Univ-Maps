@@ -68,6 +68,15 @@ li{
     text-shadow: 2px 6px 2px #e5e5e5;
 }
 
+/* signup second step */
+
+
+.warning-password-validation{
+    display: none;
+}
+
+
+/* signup first step */
 .inner-terms{
     display:flex;
     align-items: center;
