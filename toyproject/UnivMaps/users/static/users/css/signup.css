@@ -54,7 +54,8 @@ body{
 
 .status-bar{
     list-style:none;
-    margin: 10% 0 10% 0;
+    margin: 10% 5% 10% 5%;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;

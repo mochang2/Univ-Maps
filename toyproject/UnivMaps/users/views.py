@@ -6,9 +6,9 @@ from secrets import token_urlsafe
 
 def signup(request):
     data = {}
-    if request.method == "GET":
-        to_make_url = request.GET.get("agree-with-terms", None)
-        if to_make_url == "agree-with-terms":
+    if request.method == "POST":
+        join_agreement = request.POST.get("agree-with-terms", None)
+        if join_agreement == "agree-with-terms":
             data.update({"token_url": token_urlsafe()})
             print(data["token_url"])
             # https://docs.python.org/3/library/secrets.html

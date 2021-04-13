@@ -32,25 +32,33 @@
     <div class="outter-wrapper">
         <div class="inner-wrapper">
 
-            <form action="" method="GET" enctype="application/x-www-form-urlencoded" id="join-form">
 
-                <div class="step">
-                    <ul class="status-bar">
-                        <!-- 일정 조건이 되면 active css 적용이 되도록 설정 추가 필요 -->
-                        <li class="first-step-sign"><label><b>약관동의</b></label></li>
-                        <i class="fas fa-arrow-alt-circle-right first-right-arrow"></i>
-                        <li class="second-step-sign"><label><b>회원정보</b></label></li>
-                        <i class="fas fa-arrow-alt-circle-right second-right-arrow"></i>
-                        <li class="third-step-sign"><label><b>가입완료</b></label></li>
-                    </ul>
+            <div class="step">
+                <ul class="status-bar">
+                    <!-- 일정 조건이 되면 active css 적용이 되도록 설정 추가 필요 -->
+                    <li class="first-step-sign"><label><b>약관동의</b></label></li>
+                    <i class="fas fa-arrow-alt-circle-right first-right-arrow"></i>
+                    <li class="second-step-sign"><label><b>회원정보</b></label></li>
+                    <i class="fas fa-arrow-alt-circle-right second-right-arrow"></i>
+                    <li class="third-step-sign"><label><b>가입완료</b></label></li>
+                </ul>
+            </div>
+
+            {% if token_url %}
+            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-form">
+                <div class="btn-wrapper">
+                    <!-- signup2.js 에서 가입취소 추가
+                    csrf 토큰 추가해서 가입하기(2단계)에 추가
+                    id passwd 등 적는 가입 화면 폼 추가
+                    받은 아이디 비번 확인하는 view 작성
+                    각 아이디마다 토큰 생성해서 같이 저장하게 문서 공부-->
+                    <button class="ok-btn btn">가입하기</button>
+                    <a class="goback-btn btn">가입취소</a>
                 </div>
-
-                {% if token_url %}
-
-                <span>test</span>
-
-                {% else %}
-
+            </form>
+            {% else %}
+            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-agreement-form">
+                {% csrf_token %}
                 <div class="terms">
                     <div class="inner-terms">
                         <div class="hide-and-show-terms">
@@ -93,10 +101,8 @@
                 </div>
                 {% endif %}
             </form>
-        </div>
-
-
-    </div>
+        </div> <!-- inner wrapper -->
+    </div> <!-- outter wrapper -->
 </body>
 
 </html>
