@@ -87,10 +87,11 @@ h3{
 .check-agreement{
     display:flex;
     align-items: center;
+    justify-content: flex-end;
     width: 20%;
+    margin-right: 10%;
 }
 .check-box{
-    margin-right: 10%;
     width: 21px;
     height: 21px;
 }
@@ -131,4 +132,28 @@ h3{
 }
 .btn:hover{
     cursor: pointer;
+}
+
+@media screen and (max-width: 940px){
+    .inner-wrapper{
+        width: 460px;
+    }
+    
+    .check-agreement{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .inner-wrapper{
+        width: 100%;
+    }
+
+    .btn{
+        font-size: 12px;
+    }
+    
+    .check-agreement{
+        width: 35%;
+    }
 }
