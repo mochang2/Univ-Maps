@@ -69,7 +69,27 @@ li{
 }
 
 /* signup second step */
-
+#join-form{
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.signup-label{
+    font-family: 'Hanna', sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.input-box{
+    width: calc(100% - 6px);
+    height: 25px;
+}
+.input-box:focus{
+    background-color: rgb(247,248,249);
+}
+#sex{
+    width: 20%;
+    height: 25px;
+    min-width: 55.1px;
+}
 
 .warning-password-validation{
     display: none;
@@ -121,7 +141,6 @@ h3{
     margin: 15px 20% 0 20%;
     display: flex;
     justify-content: space-evenly;
-
 }
 .btn{
     padding: 10px 15px 10px 15px;
@@ -138,6 +157,7 @@ h3{
     background-color: white;
     border: 1px #e5e5e5 solid;
     color:black;
+    white-space: nowrap;
 }
 .btn:hover{
     cursor: pointer;
