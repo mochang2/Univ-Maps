@@ -41,8 +41,8 @@
     }
 
     function active() {
-        const stepSingLi = document.querySelectorAll("li")[0]
-        stepSingLi.classList.add("active")
+        const stepSignLi = document.querySelectorAll("li")[0]
+        stepSignLi.classList.add("active")
     }
 
 })(window, document, undefined);

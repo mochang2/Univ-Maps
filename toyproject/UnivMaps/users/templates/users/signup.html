@@ -10,7 +10,9 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 
     <title>회원가입 페이지</title>
-    {% if token_url %}
+    {% if signup_success %}
+    <script type="text/javascript" src="{% static 'users/js/signup3.js' %}"></script>
+    {% elif token_url %}
     <script type="text/javascript" src="{% static 'users/js/signup2.js' %}"></script>
     {% else %}
     <script type="text/javascript" src="{% static 'users/js/signup1.js' %}"></script>
@@ -45,16 +47,23 @@
                 </ul>
             </div>
 
+            <!--signup third step-->
+            {% if signup_success %}
+            <div class="signup-success-wrapper">
+                <img src="{% static 'users/images/signup_success_removebg.png' %}" alt="하이리온"
+                    class="signup-success-img">
+                <div class="btn-wrapper">
+                    <a class="login-btn btn" href="/auth/login/">로그인하기</a>
+                    <a class="gomap-btn btn" href="/hanyang_map/">대학지도로</a>
+                </div>
+            </div>
 
             <!--signup second step-->
-            {% if token_url %}
+            {% elif token_url %}
             <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-form">
                 {% csrf_token %}
                 <p class="signup-label">아이디</p>
                 <input required name="username" type="text" maxlength="20" class="input-box" />
-                {% if error %}
-                <!--<div class="error">{{ error }}</div>-->
-                {% endif %}
                 <p class="signup-label">비밀번호(8~20자)<br />(대소문자, 숫자, 특수문자 각각 1개 이상 포함)</p>
                 <input required name="password" type="password" minlength="8" maxlength="20" id="signup-password"
                     class="input-box" />
@@ -65,21 +74,18 @@
                 <p class="signup-label">이메일</p>
                 <input required name="email" type="email" class="input-box" />
                 <p class="signup-label">성별</p>
-                <select required name="sex" id="sex">
+                <select required name="gender" id="gender">
                     <option value="male">남</option>
                     <option value="femail">여</option>
                 </select>
                 <br />
                 <div class="btn-wrapper">
-                    <!--
-                    csrf 토큰 추가해서 가입하기(2단계)에 추가
-                    에러 코드 1. 받은 아이디 중복되지 않는지 확인하는 view 작성
-                    에러코드 2. 비밀번호 하고 비밀번호 confirm하고 같은지 확인
-                    각 아이디마다 토큰 생성해서 같이 저장하게 문서 공부->회원탈퇴 등에 쓰일 거야
-                    -->
                     <input type="submit" class="ok-btn btn" value="가입하기"></button>
                     <a class="goback-btn btn">가입취소</a>
                 </div>
+                {% if error %}
+                <div class="error">{{ error }}</div>-
+                {% endif %}
             </form>
 
 
@@ -121,15 +127,13 @@
                             어쩌면 너는 너는 너는 Still in me
                         </p>
                     </div>
-
                 </div>
                 <div class="btn-wrapper">
                     <button class="ok-btn btn">동의하기</button>
                     <a class="goback-btn btn">돌아가기</a>
                 </div>
-                {% endif %}
-
             </form>
+            {% endif %}
         </div> <!-- inner wrapper -->
     </div> <!-- outter wrapper -->
 </body>

@@ -13,8 +13,8 @@
     }
 
     function active() {
-        const stepSingLi = document.querySelectorAll("li")[1]
-        stepSingLi.classList.add("active")
+        const stepSignLi = document.querySelectorAll("li")[1]
+        stepSignLi.classList.add("active")
     }
 
 
