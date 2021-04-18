@@ -65,7 +65,8 @@ html, body {
     padding-right: 30px;
 }
 .menuLink:hover{
-    color:white;
+    cursor: pointer;
+    color: white;
 }
 
 .title-wrapper{
