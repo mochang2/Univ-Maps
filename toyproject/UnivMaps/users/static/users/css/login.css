@@ -187,6 +187,14 @@ body{
 	outline: none;
 }
 
+.login-error-wrapper{
+	text-align: left;
+}
+.login-error{
+	color: #7b7b7b;
+	font-size: xx-small;
+}
+
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;

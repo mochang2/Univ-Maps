@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from secrets import token_urlsafe
 from .models import User
-
-# Create your views here.
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 
 
 def signup(request):
@@ -52,4 +51,21 @@ def signup(request):
 
 
 def login(request):
+    error = ""
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(username=username, password=password)
+        if user:
+            auth_login(request, user)
+            return redirect("/")
+        else:
+            error = "아이디나 비밀번호가 일치하지 않습니다."
+            return render(request, "users/login.html", {"error": error})
+
     return render(request, "users/login.html")
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect("/")

@@ -25,19 +25,25 @@
         <div class="below-container">
             <div class="screen">
                 <div class="screen__content">
-                    <form class="login">
+                    <form class="login" method="POST" enctype="application/x-www-form-urlencoded" id="login-form">
+                        {% csrf_token %}
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder="아이디">
+                            <input type="text" class="login__input" placeholder="아이디" name="username">
                         </div>
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" placeholder="비밀번호">
+                            <input type="password" class="login__input" placeholder="비밀번호" name="password">
                             <br>
                             <a class="remind-password" href="#">비밀번호찾기</a>
                         </div>
                         <button class="button login__submit">
-                            <span class="button__text">로그인</span>
+                            <div class="login-error-wrapper">
+                                <span class="button__text">로그인</span>
+                                {% if error %}
+                                <div class="login-error">{{ error }}</div>
+                                {% endif %}
+                            </div>
                             <i class="button__icon fas fa-chevron-right"></i>
                         </button>
                     </form>
