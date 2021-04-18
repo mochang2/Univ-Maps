@@ -112,14 +112,19 @@ li{
     min-width: 55.1px;
 }
 
+.duplicated-id-error{
+    color: red;
+    font-size: 12px;
+}
 .warning-password-validation{
     display: none;
+    color: red;
+    font-size: 12px;
 }
 .warning-password-confirm{
     display: none;
-}
-.error{
-    color: black;
+    color: red;
+    font-size: 12px;
 }
 
 /* signup first step */

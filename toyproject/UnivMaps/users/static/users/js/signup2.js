@@ -3,6 +3,7 @@
         goback()
         active()
         checkPassword()
+        checkDuplicatedID()
     };
 
     function goback() {
@@ -45,6 +46,17 @@
             else {
                 warningPasswordConfirm.style.display = "block"
                 signupBtn.disabled = true
+            }
+        })
+    }
+
+    function checkDuplicatedID() {
+        let signupID = document.getElementById("signup-id")
+        const duplicatedIDError = document.querySelector(".duplicated-id-error")
+
+        signupID.addEventListener("keyup", (Event) => {
+            if (duplicatedIDError) {
+                duplicatedIDError.style.display = "none"
             }
         })
     }
