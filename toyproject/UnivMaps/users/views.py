@@ -20,16 +20,14 @@ def signup(request):
             email = request.POST["email"]
             gender = request.POST["gender"]
 
-            if password != confirm_password:
-                error = "비밀번호가 일치하지 않습니다."
-                data.update({"error": error})
-                return render(request, "users/signup.html", data)
-
+            # 밥먹고 돌아와서 중복된 아이디 검증만 다시 하면 됨
             try:
                 user = User.objects.create_user(username, email, password)
             except Exception:
-                error = "이미 존재하는 아이디 입니다."
-                data.update({"error": error})
+                error = "이미 존재하는 아이디입니다."
+                data.update({"error": error})  ##data 업데이트 다시 해줘야돼
+                # 에러 해결하자
+                print(data)
                 return render(request, "users/signup.html", data)
 
             user.gender = gender

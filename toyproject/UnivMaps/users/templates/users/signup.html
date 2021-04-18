@@ -70,7 +70,8 @@
                 <div class="warning-password-validation">비밀번호 규칙에 맞게 작성해주세요</div>
                 <p class="signup-label">비밀번호 확인</p>
                 <input required name="confirm-password" type="password" minlength="8" maxlength="20"
-                    class="input-box" />
+                    id="signup-password-confirm" class="input-box" />
+                <div class="warning-password-confirm">비밀번호가 일치하지 않습니다</div>
                 <p class="signup-label">이메일</p>
                 <input required name="email" type="email" class="input-box" />
                 <p class="signup-label">성별</p>
@@ -80,7 +81,7 @@
                 </select>
                 <br />
                 <div class="btn-wrapper">
-                    <input type="submit" class="ok-btn btn" value="가입하기"></button>
+                    <input type="submit" class="ok-btn btn" value="가입하기" id="signup-btn"></button>
                     <a class="goback-btn btn">가입취소</a>
                 </div>
                 {% if error %}

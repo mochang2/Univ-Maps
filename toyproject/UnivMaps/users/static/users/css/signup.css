@@ -115,6 +115,9 @@ li{
 .warning-password-validation{
     display: none;
 }
+.warning-password-confirm{
+    display: none;
+}
 .error{
     color: black;
 }
