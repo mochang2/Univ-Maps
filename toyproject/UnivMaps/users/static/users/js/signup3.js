@@ -1,7 +1,7 @@
 (function (window, document, undefined) {
     window.onload = function () {
         active()
-        adjustMargin()
+        adjustStatusBarMargin()
     };
 
     function active() {
@@ -9,7 +9,7 @@
         stepSignLi.classList.add("active")
     }
 
-    function adjustMargin() {
+    function adjustStatusBarMargin() {
         const statusBar = document.querySelector("ul")
         statusBar.style.marginBottom = "0"
     }

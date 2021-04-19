@@ -58,7 +58,7 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user:
             auth_login(request, user)
-            return redirect("/")
+            return redirect("/post/")
         else:
             error = "아이디나 비밀번호가 일치하지 않습니다."
             return render(request, "users/login.html", {"error": error})
@@ -68,4 +68,8 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect("/")
+    return redirect("/post/")
+
+
+def mypage(request):
+    return render(request, "users/mypage.html")

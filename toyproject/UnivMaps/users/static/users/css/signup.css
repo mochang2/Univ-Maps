@@ -4,6 +4,7 @@ html, body {
 }
 body{
     margin: 0;
+    background-color: rgb(247,248,249);
 }
 
 .above-menu-wrapper{
@@ -40,7 +41,6 @@ body{
 .outter-wrapper{
     width: 100%;
     height: 100%;
-    background-color: rgb(247,248,249);
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +48,7 @@ body{
 
 .inner-wrapper{
     width: 50%;
-    height: 99%; /*inner-wrapper의 height 회원가입 2단계 후 고쳐야 될 부분*/
+    height: 100%;
     background-color: white;
 }
 
@@ -75,6 +75,7 @@ li{
 .signup-success-img{
     width: 80%;
     height: auto;
+    max-height: 550px;
 }
 .login-btn{
     background-color: rgb(246,147,33);
@@ -82,7 +83,7 @@ li{
     border: 1px rgb(246,147,33) solid;
     white-space: nowrap;
 }
-.gomap-btn{
+.gopost-btn{
     background-color: white;
     border: 1px #e5e5e5 solid;
     color:black;

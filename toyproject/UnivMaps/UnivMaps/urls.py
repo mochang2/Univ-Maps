@@ -22,5 +22,6 @@ urlpatterns = [
     path("", include("main_page.urls")),
     path("hanyang_map/", include("hanyang_map.urls")),
     path("auth/", include("users.urls")),
+    path("post/", include("posts.urls")),
 ]
 urlpatterns += staticfiles_urlpatterns()

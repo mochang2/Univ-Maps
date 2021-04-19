@@ -28,16 +28,9 @@
 
             <div class="right-menu">
                 <div class="right-menu">
-                    {% if user.is_authenticated %}
-                    <a class="menuLink mypage" herf="#">{{ user.username }}님</a>
-                    <a class="menuLink logout" href="/auth/logout/">로그아웃</a>
-                    {% else %}
-                    <a class="menuLink login" href="/auth/login/">로그인</a>
-                    <a class="menuLink singnup" href="/auth/signup/">회원가입</a>
-                    {% endif %}
+                    <a class="menuLink go-to-post" href="/post/">게시판 바로가기</a>
                 </div>
             </div>
-
         </div>
 
         <div class=" title-wrapper">

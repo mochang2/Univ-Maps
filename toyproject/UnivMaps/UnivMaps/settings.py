@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "main_page",
     "hanyang_map",
     "users",
+    "posts",
 ]
 
 MIDDLEWARE = [
@@ -138,6 +139,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "main_page/static"),
     os.path.join(BASE_DIR, "hanyang_map/static"),
     os.path.join(BASE_DIR, "users/static"),
+    os.path.join(BASE_DIR, "posts/static"),
 ]
 # 배포 단계에서 성능 문제로 static file들을 한 곳에 모아줌(for 웹 서버)
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

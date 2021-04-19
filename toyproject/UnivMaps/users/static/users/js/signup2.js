@@ -9,7 +9,7 @@
     function goback() {
         const goBackBtn = document.querySelector(".goback-btn")
         goBackBtn.addEventListener("click", (Event) => {
-            location.href = "/hanyang_map"
+            location.href = "/post/"
         })
     }
 

@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>게시판</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'posts/css/posts_home.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="above-menu-wrapper">
+            <div class="dot-wrapper" onclick="location.href='/';">
+                <div class="red-dot dot"></div>
+                <div class="yellow-dot dot"></div>
+                <div class="green-dot dot"></div>
+            </div>
+            <div class="right-menu">
+                <div class="right-menu">
+                    {% if user.is_authenticated %}
+                    <a class="menuLink mypage" href="/auth/mypage/">{{ user.username }}님</a>
+                    <a class="menuLink logout" href="/auth/logout/">로그아웃</a>
+                    {% else %}
+                    <a class="menuLink login" href="/auth/login/">로그인</a>
+                    <a class="menuLink singnup" href="/auth/signup/">회원가입</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="below-wrapper">
+
+            <h1>게시판입니다.</h1>
+        </div>
+    </div>
+</body>
+
+</html>
