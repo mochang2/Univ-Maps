@@ -80,7 +80,11 @@ def mypage(request):
     if request.user.is_authenticated:
         return render(request, "users/mypage.html")
     else:
-        return HttpResponseBadRequest(content="You're not authorized")
+        return HttpResponseBadRequest(
+            "You are not authorized.\
+                    Do not access with URL without login. \
+                        Please login first."
+        )
 
 
 def findpasswd(request):
