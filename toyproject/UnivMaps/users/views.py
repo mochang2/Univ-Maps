@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest
 from secrets import token_urlsafe
 from .models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
@@ -8,6 +9,7 @@ def signup(request):
     data = {}
     error = ""
     signup_success = ""
+
     if request.method == "POST":
         # signup 2단계 제출시
         username = request.POST.get("username", None)
@@ -51,6 +53,9 @@ def signup(request):
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect("/post/")
+
     error = ""
     if request.method == "POST":
         username = request.POST["username"]
@@ -72,4 +77,8 @@ def logout(request):
 
 
 def mypage(request):
+    if request.user.is_authenticated:
+        pass
+    else:
+        return HttpResponseBadRequest(content="You're not authorized")
     return render(request, "users/mypage.html")
