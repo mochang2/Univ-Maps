@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
-    <title>로그인</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}">
+    <title>비밀번호찾기</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/findpasswd.css' %}">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
@@ -33,13 +33,12 @@
                         </div>
                         <div class="login__field">
                             <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" placeholder="비밀번호" name="password">
+                            <input type="email" class="login__input" placeholder="이메일" name="email">
                             <br>
-                            <a class="remind-password" href="/auth/findpasswd/">비밀번호찾기</a>
                         </div>
                         <button class="button login__submit">
                             <div class="login-error-wrapper">
-                                <span class="button__text">로그인</span>
+                                <span class="button__text">비밀번호 재설정</span>
                                 {% if error %}
                                 <div class="login-error">{{ error }}</div>
                                 {% endif %}
@@ -47,10 +46,6 @@
                             <i class="button__icon fas fa-chevron-right"></i>
                         </button>
                     </form>
-                    <div class="yet-member">
-                        <h5>아직 회원이 아니신가요?</h5>
-                        <a class="signup-link" href="/auth/signup/">회원가입</a>
-                    </div>
                 </div>
                 <div class="screen__background">
                     <span class="screen__background__shape screen__background__shape4"></span>

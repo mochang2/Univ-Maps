@@ -78,7 +78,11 @@ def logout(request):
 
 def mypage(request):
     if request.user.is_authenticated:
-        pass
+        return render(request, "users/mypage.html")
     else:
         return HttpResponseBadRequest(content="You're not authorized")
-    return render(request, "users/mypage.html")
+
+
+def findpasswd(request):
+    data = {}
+    return render(request, "users/findpasswd.html", data)
