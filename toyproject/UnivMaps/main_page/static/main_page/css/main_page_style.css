@@ -48,7 +48,7 @@ body{
     background-color: #2ACD43;
 }
 
-.main_name {
+.main_name { /* 대학별 지도 */
     height: 80px;
     font-size: 340%;
     font-family: 'Impact', 'Arial Black';
@@ -56,7 +56,7 @@ body{
     font-weight: 600;
 }
 
-.select {
+.select { /* 원하는 학교를 클릭하세요 */
     font-family: 'Impact', 'Arial Black';
     font-weight: bold;
     margin-bottom: 1em;
@@ -97,7 +97,7 @@ body{
     margin-left: 1vw;
 }
 
-.ps {
+.ps { /* 가나다순 */
     float: right;
     font-size: small;
 }
