@@ -55,7 +55,7 @@ html, body {
     font-family: 'Noto Sans KR', sans-serif;
     padding-right: 1.6rem;
 }
-.menuLink {
+.menuLink { /* 게시판 바로가기 */
     list-style: none;
     text-decoration: none;
     color: white;
@@ -72,7 +72,7 @@ html, body {
 .title-wrapper{
     background-color: #fffeee;
 }
-.title{
+.title{ /* 한양인들의 꿀팁만 담은 \n 한양대학교 지도 */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:large;
 }
