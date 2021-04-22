@@ -52,7 +52,7 @@ body{
     background-color: white;
 }
 
-.status-bar{
+.status-bar{ /* 회원가입 단계 */
     list-style:none;
     margin: 10% 5% 10% 5%;
     padding: 0;
@@ -63,7 +63,7 @@ body{
 li{
     color: grey;
 }
-.active{
+.active{ /* 현재 회원가입 단계 표시 */
     color : rgb(246,147,33);
     text-shadow: 2px 6px 2px #e5e5e5;
 }
@@ -95,24 +95,25 @@ li{
     padding-left: 25%;
     padding-right: 25%;
 }
-.signup-label{
+.signup-label{ /* 입력해야 될 내용 */
     font-family: 'Hanna', sans-serif;
     font-size: 20px;
     margin-bottom: 10px;
 }
-.input-box{
+.input-box{ /* 회원가입 시 입력할 인풋 박스 */
     width: calc(100% - 6px);
     height: 25px;
 }
 .input-box:focus{
     background-color: rgb(247,248,249);
 }
-#gender{
+#gender{ /* 성별 */
     width: 20%;
     height: 25px;
     min-width: 55.1px;
 }
 
+/* 에러 표시 */
 .duplicated-id-error{
     color: red;
     font-size: 12px;
@@ -145,22 +146,22 @@ li{
 h3{
     margin: 0 2px 0 2px;
 }
-.check-agreement{
+.check-agreement{ /* 약관 동의 체크 wrapper */
     display:flex;
     align-items: center;
     justify-content: flex-end;
     width: 20%;
     margin-right: 10%;
 }
-.check-box{
+.check-box{/* 약관 동의 체크 박스 */
     width: 21px;
     height: 21px;
 }
-.agreement-content-wrapper{
+.agreement-content-wrapper{ /* 약관 내역 wrapper */
     display:flex;
     justify-content: center;
 }
-.agreement-content{
+.agreement-content{ /* 약관 내역 */
     display: none;
     width: 80%; 
     height: 150px;
@@ -195,6 +196,7 @@ h3{
     cursor: pointer;
 }
 
+/* 반응형 웹 */
 @media screen and (max-width: 940px){
     .inner-wrapper{
         width: 460px;
