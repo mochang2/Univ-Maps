@@ -76,8 +76,8 @@ body{
 }
 
 .logo{
-    height: 110px;
-    width: 280px;
+    position: relative;
+    width: 21%;
     border-radius: 7px;
     border: 2px solid rgb(203,206,207);
     box-shadow: 3px 3px 3px rgb(203,206,207);
@@ -88,16 +88,54 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f6fa', endColorstr='#c9ced3',GradientType=0 ); /* IE6-9 */
     margin-bottom: 15px;
     cursor: pointer;
+    min-width: 220px;
+    max-height: 90.4px;
+}
+.logo::before{
+    content: "";
+    display: block;
+    padding-top: 40%;
 }
 
 .logo_images{
-    height: 60px;
-    width: auto;
-    margin-top: 25px;
-    margin-left: 1vw;
+    position: absolute;
+    width: 90%;
+    height: auto;
+    left: 5%;
+    top: 20%;
+    z-index: 1;
 }
 
 .ps { /* 가나다순 */
+    position: absolute;
     float: right;
-    font-size: small;
+    font-size: xx-small;
+    bottom: 0%;
+    right: 0%;
+}
+
+@media screen and (max-width: 1200px){
+    .logo{
+        min-width: 200px;
+    }
+}
+@media screen and (max-width: 768px){
+    .logo{
+        min-width: 180px;
+    }
+}
+@media screen and (max-width: 660px){
+    .logo{
+        min-width: 160px;
+    }
+}
+@media screen and (max-width: 590px){
+    .logo{
+        min-width: 140px;
+    }
+}
+@media screen and (max-width: 380px){
+    .logo{
+        min-width: 120px;
+    }
 }
