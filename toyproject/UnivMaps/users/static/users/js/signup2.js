@@ -6,20 +6,20 @@
         checkDuplicatedID()
     };
 
-    function goback() {
+    function goback() { //회원가입 취소
         const goBackBtn = document.querySelector(".goback-btn")
         goBackBtn.addEventListener("click", (Event) => {
             location.href = "/post/"
         })
     }
 
-    function active() {
+    function active() { //회원가입 단계 표시
         const stepSignLi = document.querySelectorAll("li")[1]
         stepSignLi.classList.add("active")
     }
 
 
-    function checkPassword() {
+    function checkPassword() { //패스워드 validation 체크
         const rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
         let signupPassword = document.getElementById("signup-password")
         const warningPasswordValidation = document.querySelector(".warning-password-validation")
@@ -51,6 +51,7 @@
     }
 
     function checkDuplicatedID() {
+        //이미 가입된 아이디가 있을 때(에러시), 아이디 다시 입력하면 에러창 가리기
         let signupID = document.getElementById("signup-id")
         const duplicatedIDError = document.querySelector(".duplicated-id-error")
 

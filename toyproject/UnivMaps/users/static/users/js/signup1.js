@@ -6,7 +6,7 @@
         active()
     };
 
-    function termsListener() {
+    function termsListener() { // 약관 보이게, 안 보이게
         const hideShowTerms = document.querySelector(".hide-and-show-terms")
         const faArrow = document.querySelector(".fa-arrow-down")
         const agreementContent = document.querySelector(".agreement-content")
@@ -23,7 +23,7 @@
         })
     }
 
-    function agree() {
+    function agree() { //약관 동의시
         const okBtn = document.querySelector(".ok-btn")
         const checkBox = document.querySelector(".check-box")
         okBtn.addEventListener("click", (Event) => {
@@ -33,14 +33,14 @@
         })
     }
 
-    function goback() {
+    function goback() { //회원가입 취소시
         const goBackBtn = document.querySelector(".goback-btn")
         goBackBtn.addEventListener("click", (Event) => {
             location.href = "/post/"
         })
     }
 
-    function active() {
+    function active() { //회원가입 단계 표시
         const stepSignLi = document.querySelectorAll("li")[0]
         stepSignLi.classList.add("active")
     }
