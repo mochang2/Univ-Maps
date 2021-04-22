@@ -59,6 +59,7 @@ body{
 	justify-content: center;
 	min-height: 100vh;
 }
+/* 전체적인 로그인 폼 */
 .screen {		
 	background: linear-gradient(90deg, #2c6fca, #6aa3f2);		
 	position: relative;	
@@ -66,12 +67,12 @@ body{
 	width: 360px;	
 	box-shadow: 0px 0px 24px #0b3f85;
 }
-.screen__content {
+.screen-content {
 	z-index: 1;
 	position: relative;	
 	height: 100%;
 }
-.screen__background {		
+.screen-background {		
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -82,12 +83,13 @@ body{
 	clip-path: inset(0 0 0 0);	
 }
 
-.screen__background__shape {
+.screen-background-shape {
 	transform: rotate(45deg);
 	position: absolute;
 }
 
-.screen__background__shape1 {
+/* 배경 문양 */
+.screen-background-shape1 {
 	height: 520px;
 	width: 520px;
 	background: #FFF;	
@@ -96,7 +98,7 @@ body{
 	border-radius: 0 72px 0 0;
 }
 
-.screen__background__shape2 {
+.screen-background-shape2 {
 	height: 220px;
 	width: 220px;
 	background: #136be3;	
@@ -105,7 +107,7 @@ body{
 	border-radius: 32px;
 }
 
-.screen__background__shape3 {
+.screen-background-shape3 {
 	height: 540px;
 	width: 190px;
 	background: linear-gradient(270deg, #2c6fca, #1f6dd7);
@@ -114,7 +116,7 @@ body{
 	border-radius: 32px;
 }
 
-.screen__background__shape4 {
+.screen-background-shape4 {
 	height: 400px;
 	width: 200px;
 	background: #0769ef;	
@@ -123,24 +125,22 @@ body{
 	border-radius: 60px;
 }
 
+/* 로그인 인풋 */
 .login {
 	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
 }
-
-.login__field {
+.login-field {
 	padding: 20px 0px;	
 	position: relative;	
 }
-
-.login__icon {
+.login-icon {
 	position: absolute;
 	top: 30px;
 	color: rgb(19,107,227);
 }
-
-.login__input {
+.login-input {
 	border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
@@ -155,15 +155,14 @@ body{
 	text-decoration: none;
 	color: #7b7b7b;
 }
-
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
+.login-input:active,
+.login-input:focus,
+.login-input:hover {
 	outline: none;
 	border-bottom-color: #1f6dd7;
 }
-
-.login__submit {
+/* 로그인 제출 */
+.login-submit {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
@@ -180,14 +179,19 @@ body{
 	cursor: pointer;
 	transition: .2s;
 }
-
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
+.login-submit:active,
+.login-submit:focus,
+.login-submit:hover {
 	border-color: #1f6dd7;
 	outline: none;
 }
+.button-icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: rgb(19,107,227);
+}
 
+/* 로그인 에러 */
 .login-error-wrapper{
 	text-align: left;
 }
@@ -196,12 +200,7 @@ body{
 	font-size: xx-small;
 }
 
-.button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: rgb(19,107,227);
-}
-
+/* 아직 회원가입을 하지 않았으면 */
 .yet-member {	
 	position: absolute;
 	height: 140px;
@@ -211,14 +210,12 @@ body{
 	right: 10px;
 	color: #fff;
 }
-
 .yet-member {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
-
 .signup-link {
 	margin: 10px 5px;
 	padding: 10px 5px;
@@ -228,7 +225,6 @@ body{
 	text-decoration: none;	
 	text-shadow: 0px 0px 8px rgb(19,107,227);
 }
-
 .signup-link:hover {
 	transform: scale(1.2);	
 }
