@@ -24,34 +24,34 @@
 
         <div class="below-container">
             <div class="screen">
-                <div class="screen__content">
+                <div class="screen-content">
                     <form class="login" method="POST" enctype="application/x-www-form-urlencoded" id="login-form">
                         {% csrf_token %}
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder="아이디" name="username">
+                        <div class="login-field">
+                            <i class="login-icon fas fa-user"></i>
+                            <input type="text" class="login-input" placeholder="아이디" name="username">
                         </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input type="email" class="login__input" placeholder="이메일" name="email">
+                        <div class="login-field">
+                            <i class="login-icon fas fa-lock"></i>
+                            <input type="email" class="login-input" placeholder="이메일" name="email">
                             <br>
                         </div>
-                        <button class="button login__submit">
+                        <button class="button login-submit">
                             <div class="login-error-wrapper">
-                                <span class="button__text">비밀번호 재설정</span>
+                                <span class="button-text">비밀번호 재설정</span>
                                 {% if error %}
                                 <div class="login-error">{{ error }}</div>
                                 {% endif %}
                             </div>
-                            <i class="button__icon fas fa-chevron-right"></i>
+                            <i class="button-icon fas fa-chevron-right"></i>
                         </button>
                     </form>
                 </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
+                <div class="screen-background">
+                    <span class="screen-background-shape screen-background-shape4"></span>
+                    <span class="screen-background-shape screen-background-shape3"></span>
+                    <span class="screen-background-shape screen-background-shape2"></span>
+                    <span class="screen-background-shape screen-background-shape1"></span>
                 </div>
             </div>
         </div>
