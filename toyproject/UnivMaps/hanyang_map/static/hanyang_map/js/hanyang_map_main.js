@@ -8,8 +8,10 @@
         preventCtrlU()
     }
 
-    function preventCtrlU() {
-        window.addEventListener("keydown", (Event) => {
+    function preventCtrlSU() {
+        let keysPressed = new Map()
+
+        document.addEventListener("keydown", (Event) => {
             let keycode
             if (Event.key !== undefined) {
                 keycode = Event.key
@@ -18,15 +20,34 @@
                 keycode = Event.keyIdentifier
             }
             else if (Event.keyCode !== undefined) {
-                // keyCode는 곧 사라짐. 이렇게 하면 모두 대문자로 변환됨.
-                keycode = String.fromCharCode(Event.keyCode)
+                // keyCode는 곧 사라짐.
+                keycode = String.fromCharCode(Event.keyCode).toLowerCase()
             }
 
             // ctrl + s, ctrl + u 방지
-            if (keycode == "Control" || keycode == "s" || keycode == "u") {
+            keysPressed.set(keycode, true)
+
+            if ((keysPressed.get("Control") && keycode == "s") ||
+                (keysPressed.get("Control") && keycode == "u")) {
                 Event.preventDefault()
                 Event.returnValue = false
             }
+        })
+
+        document.addEventListener("keyup", (Event) => {
+            let keycode
+            if (Event.key !== undefined) {
+                keycode = Event.key
+            }
+            else if (Event.keyIdentifier !== undefined) {
+                keycode = Event.keyIdentifier
+            }
+            else if (Event.keyCode !== undefined) {
+                // keyCode는 곧 사라짐.
+                keycode = String.fromCharCode(Event.keyCode).toLowerCase()
+            }
+
+            keysPressed.delete(keycode)
         })
     }
 
