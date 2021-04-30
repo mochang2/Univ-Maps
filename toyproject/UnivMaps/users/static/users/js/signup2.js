@@ -38,10 +38,12 @@
         signupPassword.addEventListener("focusout", (Event) => {
             if (signupPassword.value.match(rule)) {
                 warningPasswordValidation.style.display = "none"
+                signupBtn.disabled = false
             }
             else {
                 warningPasswordValidation.style.display = "block"
                 signupPassword.focus()
+                signupBtn.disabled = true
             }
         })
 
