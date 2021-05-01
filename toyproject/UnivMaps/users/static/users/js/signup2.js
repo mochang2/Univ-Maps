@@ -27,6 +27,10 @@
 
 
     function checkPassword() { //패스워드 validation 체크
+        // 적어도 한가지 digit, 한가지 소문자, 한가지 대문자, 공백을 제외한 한가지 특수문자
+        // 8~20자리
+        // []: 괄호 안의 문자 중 일치하는 것을 찾을 때
+        // (?=~~): 전방탐색
         const rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
         let signupPassword = document.getElementById("signup-password")
         const warningPasswordValidation = document.querySelector(".warning-password-validation")
