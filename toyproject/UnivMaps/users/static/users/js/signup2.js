@@ -28,9 +28,14 @@
 
     function checkPassword() { //패스워드 validation 체크
         // 적어도 한가지 digit, 한가지 소문자, 한가지 대문자, 공백을 제외한 한가지 특수문자
-        // 8~20자리
-        // []: 괄호 안의 문자 중 일치하는 것을 찾을 때
-        // (?=~~): 전방탐색
+        // 전방탐색에 매칭되는 8~20자리
+        // 전방탐색 없이 (.*\d) 식으로 써 넣으면 숫자->소문자->대문자->특수문자 반드시 이 순서대로인
+        // 패스워드만 통과되므로 전방탐색이 필요
+        // (?=~~): 전방탐색 시 *(0개 이상) 이어야 함 
+        // +(1개 이상) 안됨  +가 있으면 전방탐색에 써놓은 순서에 영향을 받음
+        // ^(?=.+\d)~~ => 1QWER!@#$qwer 이런거는 통과가 안됨
+        // .* 식으로 전방탐색하면 매칭된 이후 맨 첫 위치를 return(다음 패턴을 찾기 시작할 위치)함
+        // 그래서 전방탐색 조건에 부합하면 아무 문자열(.) 이 8~20 글자 있으면 됨({8,20})
         const rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
         let signupPassword = document.getElementById("signup-password")
         const warningPasswordValidation = document.querySelector(".warning-password-validation")
