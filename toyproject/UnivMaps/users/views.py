@@ -3,6 +3,7 @@ from django.http import HttpResponseBadRequest
 from secrets import token_urlsafe
 from .models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from re import compile, match
 
 
 def signup(request):
@@ -21,7 +22,18 @@ def signup(request):
             email = request.POST["email"]
             gender = request.POST["gender"]
 
-            try:
+            # 백엔드에서 패스워드 한번더 검증
+            passwd_rule = compile(
+                "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$"
+            )
+            passwd_validation = passwd_rule.match(password)
+            if passwd_validation == None or password != confirm_password:
+                return HttpResponseBadRequest(
+                    "Data modification is suspected.\
+                    Please try again in a safe environment."
+                )
+
+            try:  # 마지막으로 아이디 중복만 검사하고 계정 생성
                 user = User.objects.create_user(username, email, password)
             except Exception:
                 error = "이미 존재하는 아이디입니다."
@@ -54,7 +66,7 @@ def signup(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect("/post/")
+        return redirect("posts:posts_home")
 
     error = ""
     if request.method == "POST":
@@ -63,7 +75,7 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user:
             auth_login(request, user)
-            return redirect("/post/")
+            return redirect("posts:posts_home")
         else:
             error = "아이디나 비밀번호가 일치하지 않습니다."
             return render(request, "users/login.html", {"error": error})
@@ -73,7 +85,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect("/post/")
+    return redirect("posts:posts_home")
 
 
 def mypage(request):
@@ -82,8 +94,8 @@ def mypage(request):
     else:
         return HttpResponseBadRequest(
             "You are not authorized.\
-                    Do not access with URL without login. \
-                        Please login first."
+            Do not access with URL without login. \
+            Please login first."
         )
 
 
