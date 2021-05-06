@@ -78,6 +78,10 @@
                 duplicatedIDError.style.display = "none"
             }
         })
+
+        signupID.addEventListener("click", (Event) => {
+            console.log("아이디 중복 검사 창 띄우기")
+        })
     }
 
     function preventCtrlSU() {
