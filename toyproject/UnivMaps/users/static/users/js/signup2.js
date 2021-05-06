@@ -79,6 +79,9 @@
             }
         })
 
+        signupID.addEventListener("keydown", (Event) => {
+            console.log("이 입력창은 키보드 입력 안 받기")
+        })
         signupID.addEventListener("click", (Event) => {
             console.log("아이디 중복 검사 창 띄우기")
         })

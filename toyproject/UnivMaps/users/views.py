@@ -23,6 +23,7 @@ def signup(request):
             gender = request.POST["gender"]
 
             # 백엔드에서 패스워드 한번더 검증
+            ## 웹서버 배포후에 웹 프록시로 한번더 테스트 해보기(툴로 변조 가능한 부분)
             passwd_rule = compile(
                 "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$"
             )
@@ -34,6 +35,7 @@ def signup(request):
                 )
 
             try:  # 마지막으로 아이디 중복만 검사하고 계정 생성
+                ## 웹서버 배포후에 웹 프록시로 한번더 테스트 해보기(툴로 변조 가능한 부분)
                 user = User.objects.create_user(username, email, password)
             except Exception:
                 error = "이미 존재하는 아이디입니다."
