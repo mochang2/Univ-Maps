@@ -38,6 +38,8 @@ def signup(request):
                 ## 웹서버 배포후에 웹 프록시로 한번더 테스트 해보기(툴로 변조 가능한 부분)
                 user = User.objects.create_user(username, email, password)
             except Exception:
+                # 아이디 중복 체크 이후 다시 post request가 발생할 동안 같은 id가 만들어졌거나
+                # web proxy 등을 통해 아이디 중복 체크를 우회한 것이라고 판단
                 error = "이미 존재하는 아이디입니다."
                 data.update(
                     {

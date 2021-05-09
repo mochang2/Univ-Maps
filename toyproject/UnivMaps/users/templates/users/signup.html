@@ -65,6 +65,9 @@
                 <p class="signup-label">아이디</p>
                 <input required name="username" type="text" maxlength="20" class="input-box" id="signup-id"
                     value="{% if error %}{{ username }}{% endif %}" placeholder="입력을 원하시면 클릭하세요" readonly />
+                {% if error %}
+                <div class="duplicated-id-error">{{ error }}</div>
+                {% endif %}
 
                 <p class="signup-label">비밀번호(공백문자 제외 8~20자)<br />(대소문자, 숫자, 특수문자 각각 1개 이상 포함)</p>
                 <input required name="password" type="password" minlength="8" maxlength="20" id="signup-password"
