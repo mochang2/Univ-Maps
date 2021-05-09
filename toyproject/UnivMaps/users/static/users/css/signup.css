@@ -115,10 +115,6 @@ li{
 }
 
 /* 에러 표시 */
-.duplicated-id-error{
-    color: red;
-    font-size: 12px;
-}
 .warning-password-validation{
     display: none;
     color: red;

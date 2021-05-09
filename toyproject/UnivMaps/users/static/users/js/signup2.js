@@ -71,20 +71,11 @@
     function checkDuplicatedID() {
         //이미 가입된 아이디가 있을 때(에러시), 아이디 다시 입력하면 에러창 가리기
         let signupID = document.getElementById("signup-id")
-        const duplicatedIDError = document.querySelector(".duplicated-id-error")
 
-        signupID.addEventListener("keyup", (Event) => {
-            if (duplicatedIDError) {
-                duplicatedIDError.style.display = "none"
-            }
-        })
-
-        signupID.addEventListener("keydown", (Event) => {
-            console.log("이 입력창은 키보드 입력 안 받기")
-        })
         signupID.addEventListener("click", (Event) => {
             console.log("아이디 중복 검사 창 띄우기")
         })
+
     }
 
     function preventCtrlSU() {
