@@ -107,4 +107,9 @@ def findpasswd(request):
 
 
 def checkifIDduplicated(request):
+    referer = request.META.get("HTTP_REFERER", "")
+    # from urllib.parse import urlparse
+    # path = urlparse(request.META['HTTP_REFERER']).path
+    print(request.get_full_path())
+    print(referer)
     return render(request, "users/checkifIDduplicated.html")

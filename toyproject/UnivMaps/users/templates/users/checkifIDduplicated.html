@@ -1,1 +1,28 @@
-아바바바
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 캐시삭제 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/checkifIDduplicated.css' %}">
+</head>
+
+<body>
+
+
+    <div class="outter-wrapper">
+        <div class="inner-wrapper">
+            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-form">
+                {% csrf_token %}
+                haha
+            </form>
+
+        </div> <!-- inner wrapper -->
+    </div> <!-- outter wrapper -->
+</body>
+
+</html>
