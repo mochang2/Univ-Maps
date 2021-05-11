@@ -5,7 +5,7 @@
         window.document.onselectstart = new Function("return false")
         window.document.ondragstart = new Function("return false")
 
-        preventCtrlU()
+        preventCtrlSU()
     }
 
     function preventCtrlSU() {

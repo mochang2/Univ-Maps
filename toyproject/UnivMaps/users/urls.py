@@ -9,4 +9,5 @@ urlpatterns = [
     path("logout/", views.logout, name="logout"),
     path("mypage/", views.mypage, name="mypage"),
     path("findpasswd/", views.findpasswd, name="findpasswd"),
+    path("checkID/", views.checkifIDduplicated, name="checkifIDduplicated"),
 ]

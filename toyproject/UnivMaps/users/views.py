@@ -104,3 +104,7 @@ def mypage(request):
 def findpasswd(request):
     data = {}
     return render(request, "users/findpasswd.html", data)
+
+
+def checkifIDduplicated(request):
+    return render(request, "users/checkifIDduplicated.html")
