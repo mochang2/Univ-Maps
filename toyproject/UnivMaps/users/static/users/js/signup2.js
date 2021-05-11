@@ -84,7 +84,7 @@
             newWindowWidth = innerWrapper.clientWidth - 20
             stringVerNewWindowWidth = newWindowWidth.toString()
 
-            window.open("https://www.naver.com", "아이디 중복 확인", "width=" + stringVerNewWindowWidth + ", height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes")
+            window.open("/auth/checkID", "아이디 중복 확인", "width=" + stringVerNewWindowWidth + ", height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes")
         })
 
     }
