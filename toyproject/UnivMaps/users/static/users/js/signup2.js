@@ -79,7 +79,12 @@
             }
         })
         signupID.addEventListener("click", (Event) => {
-            console.log("아이디 중복 검사 창 띄우기")
+            // innerWrapper 기준으로 (반응형) 새 창 크기 결정
+            let innerWrapper = document.querySelector(".inner-wrapper")
+            newWindowWidth = innerWrapper.clientWidth - 20
+            stringVerNewWindowWidth = newWindowWidth.toString()
+
+            window.open("https://www.naver.com", "아이디 중복 확인", "width=" + stringVerNewWindowWidth + ", height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes")
         })
 
     }
