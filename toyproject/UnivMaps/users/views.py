@@ -44,8 +44,6 @@ def signup(request):
                 data.update(
                     {
                         "username": username,
-                        "password": password,
-                        "confirm_passord": confirm_password,
                         "email": email,
                         "gender": gender,
                     }
