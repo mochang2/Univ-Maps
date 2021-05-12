@@ -4,6 +4,7 @@ from secrets import token_urlsafe
 from .models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from re import compile, match
+from urllib.parse import urlparse
 
 
 def signup(request):
@@ -107,9 +108,11 @@ def findpasswd(request):
 
 
 def checkifIDduplicated(request):
-    referer = request.META.get("HTTP_REFERER", "")
-    # from urllib.parse import urlparse
-    # path = urlparse(request.META['HTTP_REFERER']).path
-    print(request.get_full_path())
-    print(referer)
-    return render(request, "users/checkifIDduplicated.html")
+    ## 배포하고 한번더 확인할 필요가 있다.
+    referer = urlparse(request.headers.get("Referer", "")).path
+
+    # URL을 통한 직접 접근을 차단
+    if referer == "/auth/signup" or referer == "/auth/signup/":
+        return render(request, "users/checkifIDduplicated.html")
+
+    return HttpResponseBadRequest("You are not allowed to directly access through URL.")
