@@ -62,7 +62,15 @@
             {% elif token_url %}
             <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-form">
                 {% csrf_token %}
-                <p class="signup-label">아이디</p>
+                <div class="id-header-wrapper">
+                    <div class="id-header-left">
+                        <p class="signup-label">아이디</p>
+                    </div>
+                    <div class="id-header-right">
+                        <i class="far fa-check-circle"></i>
+                        <p class="button-to-check-duplicated-id">중복확인</p>
+                    </div>
+                </div>
                 <input required name="username" type="text" maxlength="20" class="input-box" id="signup-id"
                     value="{% if error %}{{ username }}{% endif %}" placeholder="입력을 원하시면 클릭하세요" readonly />
                 {% if error %}

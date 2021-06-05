@@ -108,6 +108,26 @@ li{
 .input-box:focus{
     background-color: rgb(247,248,249);
 }
+.id-header-wrapper{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+.id-header-right{
+    display:flex;
+    height:100%;
+    margin-top:20px;
+    border: 1px black solid;
+    cursor: grabbing;
+}
+.fa-check-circle{
+    margin-top: 2px;
+}
+.button-to-check-duplicated-id{
+    font-size: 15px;
+    background-color: rgb(247,248,249);
+    margin: 0;
+}
 #gender{ /* 성별 */
     width: 20%;
     height: 25px;

@@ -31,8 +31,8 @@ def signup(request):
             passwd_validation = passwd_rule.match(password)
             if passwd_validation == None or password != confirm_password:
                 return HttpResponseBadRequest(
-                    "Data modification is suspected.\
-                    Please try again in a safe environment."
+                    "데이터 변조가 의심됩니다.\
+                    안전한 환경에서 다시 시도해주세요."
                 )
 
             try:  # 마지막으로 아이디 중복만 검사하고 계정 생성

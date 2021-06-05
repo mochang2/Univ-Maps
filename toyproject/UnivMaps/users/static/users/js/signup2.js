@@ -71,14 +71,23 @@
     function checkDuplicatedID() {
         //이미 가입된 아이디가 있을 때(에러시), 아이디 다시 입력하면 에러창 가리기
         let signupID = document.getElementById("signup-id")
+        const idHeaderRight = document.querySelector(".id-header-right")
         const duplicatedIDError = document.querySelector(".duplicated-id-error")
 
-        signupID.addEventListener("keyup", (Event) => {
+        signupID.addEventListener("input", (Event) => { //checkifIDduplicated 마무리 짓고 잘 동작하는지 확인 필요
             if (duplicatedIDError) {
                 duplicatedIDError.style.display = "none"
             }
         })
         signupID.addEventListener("click", (Event) => {
+            // innerWrapper 기준으로 (반응형) 새 창 크기 결정
+            let innerWrapper = document.querySelector(".inner-wrapper")
+            newWindowWidth = innerWrapper.clientWidth - 20
+            stringVerNewWindowWidth = newWindowWidth.toString()
+
+            window.open("/auth/checkID", "아이디 중복 확인", "width=" + stringVerNewWindowWidth + ", height=300, toolbar=no, menubar=no, scrollbars=no, resizable=no")
+        })
+        idHeaderRight.addEventListener("click", (Event) => {
             // innerWrapper 기준으로 (반응형) 새 창 크기 결정
             let innerWrapper = document.querySelector(".inner-wrapper")
             newWindowWidth = innerWrapper.clientWidth - 20
