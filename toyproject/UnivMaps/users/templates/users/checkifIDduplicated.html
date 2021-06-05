@@ -12,15 +12,24 @@
 </head>
 
 <body>
-
-
     <div class="outter-wrapper">
         <div class="inner-wrapper">
-            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="join-form">
+            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="check-id-form">
                 {% csrf_token %}
-                haha
-            </form>
+                <div class="header">
+                    <h1>아이디 중복 체크</h1>
+                </div>
+                <div class="input-wrapper">
+                    <input required name="check_username" type="text" maxlength="20" class="input-box"
+                        placeholder="사용하고자 하는 아이디를 입력하세요.">
+                    <button class="check-if-duplicated-btn">확인</button>
+                </div>
+                <div class="if-duplicated-result-wrapper">
+                    임시방편
+                </div>
 
+
+            </form>
         </div> <!-- inner wrapper -->
     </div> <!-- outter wrapper -->
 </body>
