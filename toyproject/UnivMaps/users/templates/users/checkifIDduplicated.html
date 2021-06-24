@@ -8,6 +8,7 @@
     <!-- 캐시삭제 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>아이디 중복 확인</title>
+    <script type="text/javascript" src="{% static 'users/js/signup2.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'users/css/checkifIDduplicated.css' %}">
 </head>
 
@@ -39,7 +40,16 @@
                         은 사용 가능하지 않은 아이디입니다.
                         {% endif %}
                     </span>
-                    <!-- 버튼 추가하기! -->
+                </div>
+                <div class="bottommost-wrapper">
+                    {% if available_username %}
+                    <div class="btns use-this-username-btn">
+                        사용하기
+                    </div>
+                    <div class="btns close-window-btn">
+                        창 닫기
+                    </div>
+                    {% endif %}
                 </div>
 
 
