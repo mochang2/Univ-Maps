@@ -25,9 +25,20 @@
                     <button class="check-if-duplicated-btn">확인</button>
                 </div>
                 <div class="if-duplicated-result-wrapper">
-                    {% if available_username %}
-                    {{available_username}}
-                    {% endif %}
+                    <span class="after-checking-username returned-username">
+                        {% if available_username %}
+                        {{available_username}}
+                        {% elif unavailable_username %}
+                        {{unavailable_username}}
+                        {% endif %}
+                    </span>
+                    <span class="after-checking-username">
+                        {% if available_username %}
+                        은 사용 가능한 아이디입니다.
+                        {% elif unavailable_username %}
+                        은 사용 가능하지 않은 아이디입니다.
+                        {% endif %}
+                    </span>
                 </div>
 
 

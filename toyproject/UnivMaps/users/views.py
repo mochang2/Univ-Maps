@@ -114,8 +114,8 @@ def checkifIDduplicated(request):
         before_checking_if_available = request.POST.get("check_username", None)
         if not User.objects.filter(username=before_checking_if_available).exists():
             data.update({"available_username": before_checking_if_available})
-
-        print(before_checking_if_available)
+        else:
+            data.update({"unavailable_username": before_checking_if_available})
 
         return render(request, "users/checkifIDduplicated.html", data)
 
