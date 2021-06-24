@@ -1,5 +1,6 @@
 (function (window, document, undefined) {
     window.onload = function () {
+        passChildValueToParent()
         closeChildWindow()
 
         //우클릭 방지 + 더블클릭 방지 + 드래그 방지
@@ -10,12 +11,31 @@
         preventCtrlSU()
     };
 
-    function closeChildWindow() {
-        const closeWindowBtn = document.querySelector(".close-window-btn")
+    function passChildValueToParent() {
+        try {
+            const useThisUsernameBtn = document.querySelector(".use-this-username-btn")
 
-        closeWindowBtn.addEventListener("click", (Event) => {
-            window.close()
-        })
+            useThisUsernameBtn.addEventListener("click", () => {
+                if (opener != null && !opener.closed && opener.location.pathname == "/auth/signup/") {
+                    opener.document.getElementById("signup-id").value = document.querySelector(".returned-username").innerText
+                    window.close()
+                }
+            })
+        } catch (e) {
+            if (e instanceof TypeError) {
+                console.log("아직 아이디를 입력하지 않았습니다.")
+            }
+        }
+    }
+
+    function closeChildWindow() {
+        try {
+            const closeWindowBtn = document.querySelector(".close-window-btn")
+
+            closeWindowBtn.addEventListener("click", () => {
+                window.close()
+            })
+        } catch (e) { }
     }
 
     function preventCtrlSU() {
