@@ -108,10 +108,21 @@ def findpasswd(request):
 
 
 def checkifIDduplicated(request):
+    # 아이디 중복 확인
+    data = {}
+    if request.method == "POST":
+        before_checking_if_available = request.POST.get("check_username", None)
+        if not User.objects.filter(username=before_checking_if_available).exists():
+            data.update({"available_username": before_checking_if_available})
+
+        print(before_checking_if_available)
+
+        return render(request, "users/checkifIDduplicated.html", data)
+
+    # URL을 통한 직접 접근을 차단
     ## 배포하고 한번더 확인할 필요가 있다.
     referer = urlparse(request.headers.get("Referer", "")).path
 
-    # URL을 통한 직접 접근을 차단
     if referer == "/auth/signup" or referer == "/auth/signup/":
         return render(request, "users/checkifIDduplicated.html")
 

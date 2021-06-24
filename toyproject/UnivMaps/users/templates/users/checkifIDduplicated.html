@@ -25,7 +25,9 @@
                     <button class="check-if-duplicated-btn">확인</button>
                 </div>
                 <div class="if-duplicated-result-wrapper">
-                    임시방편
+                    {% if available_username %}
+                    {{available_username}}
+                    {% endif %}
                 </div>
 
 
