@@ -1,8 +1,12 @@
+html { 
+    min-width: 380px;
+    overflow-x: hidden;
+}
+
 body {
     font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #333333;
     background: #596778;
-    overflow:hidden;
 }
 
 .check-id-form {
@@ -144,4 +148,23 @@ input {
 ::-moz-focus-inner {
     border: 0;
     padding: 0;
+}
+
+.if-duplicated-result-wrapper{
+    display: flex;
+    color: black;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.returned-username{
+    font-weight: bolder;
+    font-style: italic;
+    text-shadow: 1px 1px 2px;
+}
+
+@media screen and (max-width: 380px){
+    html{
+        overflow-x: auto;
+    }
 }

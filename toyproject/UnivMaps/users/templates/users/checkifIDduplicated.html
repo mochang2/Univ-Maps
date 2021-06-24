@@ -27,9 +27,9 @@
                 <div class="if-duplicated-result-wrapper">
                     <span class="after-checking-username returned-username">
                         {% if available_username %}
-                        {{available_username}}
+                        {{available_username}}&nbsp;
                         {% elif unavailable_username %}
-                        {{unavailable_username}}
+                        {{unavailable_username}}&nbsp;
                         {% endif %}
                     </span>
                     <span class="after-checking-username">
@@ -39,6 +39,7 @@
                         은 사용 가능하지 않은 아이디입니다.
                         {% endif %}
                     </span>
+                    <!-- 버튼 추가하기! -->
                 </div>
 
 
