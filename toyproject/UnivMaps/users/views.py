@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from re import compile, match
 from urllib.parse import urlparse
 from django.http import JsonResponse
+from axes.models import AccessAttempt
 
 
 def signup(request):
@@ -77,6 +78,10 @@ def login(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request=request, username=username, password=password)
+        # a = AccessAttempt.objects.filter(username=username, failures_since_start=4)
+        # print(a)
+        # 6.26 recaptcha pip install 하고, 4회 틀렸을 때만 recaptcha를 띄울 수 있도록 설정하기
+
         if user:
             auth_login(request, user)
             return redirect("posts:posts_home")
