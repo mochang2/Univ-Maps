@@ -64,6 +64,8 @@ AXES_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = timedelta(minutes=10)
 AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
 AXES_RESET_ON_SUCCESS = True
+# AXES_LOCKOUT_CALLABLE = "users.views.lockout" 이 함수를 통해 락 메시지 커스터마이징 가능
+# AXES 참고: https://django-axes.readthedocs.io/en/latest/index.html
 
 ROOT_URLCONF = "UnivMaps.urls"
 

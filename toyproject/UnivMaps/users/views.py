@@ -5,6 +5,7 @@ from .models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from re import compile, match
 from urllib.parse import urlparse
+from django.http import JsonResponse
 
 
 def signup(request):
@@ -127,3 +128,8 @@ def checkifIDduplicated(request):
         return render(request, "users/checkifIDduplicated.html")
 
     return HttpResponseBadRequest("You are not allowed to directly access through URL.")
+
+
+# 이 함수와 settings.py의 AXES_LOCKOUT_CALLABLE 변수를 통해 락 메시지 커스터마이징 가능
+# def lockout(request, credentials, *args, **kwargs):
+#     return JsonResponse({"status": "Locked out due to too many login failures"}, status=403)
