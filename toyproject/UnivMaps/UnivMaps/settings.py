@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "axes",
+    "captcha",
     "main_page",
     "hanyang_map",
     "users",
