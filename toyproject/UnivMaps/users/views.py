@@ -123,17 +123,6 @@ def logout(request):
     return redirect("posts:posts_home")
 
 
-def mypage(request):
-    if request.user.is_authenticated:
-        return render(request, "users/mypage.html")
-    else:
-        return HttpResponseBadRequest(
-            "You are not authorized.\
-            Do not access with URL without login. \
-            Please login first."
-        )
-
-
 def findpasswd(request):
     data = {}
     return render(request, "users/findpasswd.html", data)
