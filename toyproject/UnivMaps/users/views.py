@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest
 from secrets import token_urlsafe
 from .models import User
+from .forms import FormWithCaptcha
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from re import compile, match
 from urllib.parse import urlparse
@@ -80,14 +81,15 @@ def login(request):
         user = authenticate(request=request, username=username, password=password)
         # a = AccessAttempt.objects.filter(username=username, failures_since_start=4)
         # print(a)
-        # 6.26 recaptcha pip install 하고, 4회 틀렸을 때만 recaptcha를 띄울 수 있도록 설정하기
+
+        form = FormWithCaptcha()
 
         if user:
             auth_login(request, user)
             return redirect("posts:posts_home")
         else:
             error = "아이디나 비밀번호가 일치하지 않습니다."
-            return render(request, "users/login.html", {"error": error})
+            return render(request, "users/login.html", {"error": error, "form": form})
 
     return render(request, "users/login.html")
 

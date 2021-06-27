@@ -191,6 +191,19 @@ body{
 	color: rgb(19,107,227);
 }
 
+label{
+	display: none;
+}
+.g-recaptcha-wrapper{
+	height: 55px;
+}
+.g-recaptcha{
+	/* recaptcha size */
+	transform:scale(0.85);
+    transform-origin:0 0;
+}
+
+
 /* 로그인 에러 */
 .login-error-wrapper{
 	text-align: left;
