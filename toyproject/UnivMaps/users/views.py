@@ -75,21 +75,45 @@ def login(request):
         return redirect("posts:posts_home")
 
     error = ""
+
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request=request, username=username, password=password)
-        # a = AccessAttempt.objects.filter(username=username, failures_since_start=4)
-        # print(a)
+        recaptcha_response = request.POST.get("g-recaptcha-response", "no recaptcha")
 
-        form = FormWithCaptcha()
+        if recaptcha_response == "no recaptcha":  # 로그인 실패가 4회 미만
+            user = authenticate(request=request, username=username, password=password)
 
-        if user:
-            auth_login(request, user)
-            return redirect("posts:posts_home")
-        else:
-            error = "아이디나 비밀번호가 일치하지 않습니다."
+            if user:
+                auth_login(request, user)
+                return redirect("posts:posts_home")
+            else:
+                error = "아이디나 비밀번호가 일치하지 않습니다."
+                # 4번 틀렸을 경우 recaptcha 주기
+                if AccessAttempt.objects.filter(
+                    username=username, failures_since_start=4
+                ):
+                    form = FormWithCaptcha()
+                    return render(
+                        request, "users/login.html", {"error": error, "form": form}
+                    )
+                else:
+                    return render(request, "users/login.html", {"error": error})
+
+        elif recaptcha_response == "":  # 로그인 실패가 4회인데 리캡차 체크 안 함
+            error = "당신이 컴퓨터가 아님을 인증하세요."
+            form = FormWithCaptcha()
             return render(request, "users/login.html", {"error": error, "form": form})
+
+        else:  # 로그인 실패가 4회인데 리캡차 체크 함
+            user = authenticate(request=request, username=username, password=password)
+
+            if user:
+                auth_login(request, user)
+                return redirect("posts:posts_home")
+            else:
+                error = "아이디나 비밀번호가 일치하지 않습니다."
+                return render(request, "users/login.html", {"error": error})
 
     return render(request, "users/login.html")
 
