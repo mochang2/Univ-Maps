@@ -13,6 +13,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'posts/css/posts_home.css' %}">
+    <script type="text/javascript" src="{% static 'hanyang_map/js/posts_home.js' %}"></script>
 </head>
 
 <body>
@@ -26,22 +27,34 @@
 
             <button class="abbreviated-menu" type="button" name="abbreviated-menu">
                 <i class="fas fa-bars"></i>
+                <!-- 이거 누르면 로그인, 회원가입 또는
+                    회원탈퇴, 비번변경, 로그아웃 메뉴 나오게 하기 
+                얘는 display가 바뀌어서 화면 전체가 움직인다면
+                메뉴 나오면 점 세 개 사라지게 하자(아님 아예 위 메뉴판이 사라지게) -->
             </button>
             <div class="right-menu">
-                <div class="right-menu">
-                    {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
+                <div class="mypage-wrapper">
                     <div class="menuLink mypage">{{ user.username }}님</div>
-                    <a class="menuLink logout" href="/auth/logout/">로그아웃</a>
-                    {% else %}
-                    <a class="menuLink login" href="/auth/login/">로그인</a>
-                    <a class="menuLink singnup" href="/auth/signup/">회원가입</a>
-                    {% endif %}
+                    <i class="fas fa-chevron-down"></i>
+                    <!-- 이거 누르면 회원탈퇴, 비번변경 메뉴 나오게 하기
+                    얘는 간단하게 위에 오버랩만 되게 메뉴 나오기(드롭다운) -->
                 </div>
+                <div class="logout-wrapper">
+                    <a class="menuLink logout" href="/auth/logout/">로그아웃</a>
+                </div>
+                {% else %}
+                <div class="login-wrapper">
+                    <a class="menuLink login" href="/auth/login/">로그인</a>
+                </div>
+                <div class="signup-wrapper">
+                    <a class="menuLink signup" href="/auth/signup/">회원가입</a>
+                </div>
+                {% endif %}
             </div>
         </div>
 
         <div class="below-wrapper">
-
             <h1>게시판입니다.</h1>
         </div>
     </div>

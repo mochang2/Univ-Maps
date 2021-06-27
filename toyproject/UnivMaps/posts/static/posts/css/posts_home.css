@@ -57,20 +57,34 @@ body{
 }
 
 .right-menu{
+    display: flex;
     font-family: 'Noto Sans KR', sans-serif;
-    padding-right: 1.6rem;
+    margin-right: 1.6rem;
 }
-.menuLink {
-    list-style: none;
+.mypage-wrapper{
+    margin-right:30px;
+}
+.mypage {
     text-decoration: none;
     color: white;
     display: inline-block;
     text-align: center;
     font-size: 12px;
-    padding-right: 30px;
 }
-.menuLink:hover{
+.logout, .login, .signup {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 30px;
+}
+.menuLink:hover , .mypage-wrapper:hover{
     cursor: pointer;
+    color: white;
+}
+
+.fa-chevron-down{
     color: white;
 }
 
