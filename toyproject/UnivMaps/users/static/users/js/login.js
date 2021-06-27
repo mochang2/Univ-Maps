@@ -13,9 +13,6 @@
     function adjustPaddingIfRecaptchaIs() {
         const loginWrapper = document.querySelector(".login")
         const gCaptchaWrapper = document.querySelector(".g-captcha-wrapper")
-        // try {
-        //     gCaptchaWrapper = document.querySelector(".g-captcha-wrapper")
-        // } catch(e){}
 
         if (gCaptchaWrapper) {
             loginWrapper.style.padding = "100px 30px 30px 30px";
