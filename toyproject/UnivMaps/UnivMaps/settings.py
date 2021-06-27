@@ -68,6 +68,9 @@ AXES_RESET_ON_SUCCESS = True
 # AXES_LOCKOUT_CALLABLE = "users.views.lockout" 이 함수를 통해 락 메시지 커스터마이징 가능
 # AXES 참고: https://django-axes.readthedocs.io/en/latest/index.html
 
+RECAPTCHA_PUBLIC_KEY = "6LfCcVkbAAAAAIsMeiKcxQ42ehg1Gj2w1aCnYyOJ"
+RECAPTCHA_PRIVATE_KEY = "6LfCcVkbAAAAAF2BjVcyTdG1iQw3TaM5ncL-A7aH"
+
 ROOT_URLCONF = "UnivMaps.urls"
 
 TEMPLATES = [
