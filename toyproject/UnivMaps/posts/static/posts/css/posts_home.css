@@ -58,6 +58,11 @@ body{
 .navbar-wrapper{
     list-style: none;
     display: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 30px;
+    top: 28px;
 }
 .navbar-menus{
 

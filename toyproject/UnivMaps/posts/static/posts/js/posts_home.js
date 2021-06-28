@@ -13,7 +13,20 @@
 
     function navBarMenuShow() {
         try {
-            const abbreviatedMenu = docuemnt.querySelector(".abbreviated-menu")
+            const abbreviatedMenu = document.querySelector(".abbreviated-menu")
+            const navBarWrapper = document.querySelector(".navbar-wrapper")
+            const aboveMenuWrapper = document.querySelector(".above-menu-wrapper")
+
+            abbreviatedMenu.addEventListener("click", (Event) => {
+                if (navBarWrapper.style.display == "none" || navBarWrapper.style.display == "") {
+                    navBarWrapper.style.display = "block"
+                    aboveMenuWrapper.style.height = "100px"
+                }
+                else if (navBarWrapper.style.display == "block") {
+                    navBarWrapper.style.display = "none"
+                    aboveMenuWrapper.style.height = "28px"
+                }
+            })
 
         } catch (err) { console.log("Window size is still big to show abbreviated menu.") }
     }
