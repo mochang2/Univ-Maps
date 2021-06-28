@@ -98,9 +98,13 @@ body{
     width: 80px;
     padding-left: 0;
     margin: 4px 0;
+    border: 1.5px solid #e5e5e5;
 }
 .dropdown-menus{
-    background-color: #FF6157;
+    background-color: white;
+}
+.dropdown-menus:hover{
+    background-color: #e5e5e5;
 }
 .dropdown-menuitem{
     text-decoration: none;
@@ -108,6 +112,10 @@ body{
     display: inline-block;
     text-align: center;
     font-size: 13px;
+}
+.li-space{
+    margin: 0;
+    background-color: white;
 }
 
 @media screen and (max-width: 1280px){
