@@ -60,9 +60,14 @@ body{
     display: flex;
     font-family: 'Noto Sans KR', sans-serif;
     margin-right: 1.6rem;
+    position:absolute;
+    right:0;
 }
 .mypage-wrapper{
     margin-right:30px;
+    position: relative;
+    width: 80px;
+    text-align: center;
 }
 .mypage {
     text-decoration: none;
@@ -83,9 +88,26 @@ body{
     cursor: pointer;
     color: white;
 }
-
 .fa-chevron-down{
     color: white;
+}
+
+.dropdown-wrapper{
+    display: none;
+    list-style: none;
+    width: 80px;
+    padding-left: 0;
+    margin: 4px 0;
+}
+.dropdown-menus{
+    background-color: #FF6157;
+}
+.dropdown-menuitem{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
 }
 
 @media screen and (max-width: 1280px){
