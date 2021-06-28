@@ -55,6 +55,21 @@ body{
 .fa-bars {
   color: white;
 }
+.navbar-wrapper{
+    list-style: none;
+    display: none;
+}
+.navbar-menus{
+
+}
+.nav-li-space{
+    margin: 0;
+    background-color: red;
+}
+.navbar-menuitem{
+    text-decoration: none;
+    color: black;
+}
 
 .right-menu{
     display: flex;

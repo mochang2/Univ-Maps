@@ -1,5 +1,6 @@
 (function (window, document, undefined) {
     window.onload = function () {
+        navBarMenuShow()
         dropDownMenuShow()
 
         //우클릭 방지 + 더블클릭 방지 + 드래그 방지
@@ -8,6 +9,13 @@
         window.document.ondragstart = new Function("return false")
 
         preventCtrlSU()
+    }
+
+    function navBarMenuShow() {
+        try {
+            const abbreviatedMenu = docuemnt.querySelector(".abbreviated-menu")
+
+        } catch (err) { console.log("Window size is still big to show abbreviated menu.") }
     }
 
     function dropDownMenuShow() {

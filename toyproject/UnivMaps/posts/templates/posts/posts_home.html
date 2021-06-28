@@ -32,6 +32,25 @@
                 얘는 display가 바뀌어서 화면 전체가 움직인다면
                 메뉴 나오면 점 세 개 사라지게 하자(아님 아예 위 메뉴판이 사라지게) -->
             </button>
+            <ul class="navbar-wrapper">
+                {% if user.is_authenticated %}
+                <li class="navbar-menus"><a class="navbar-menuitem" href="#">비번변경</a></li>
+                <li>
+                    <hr class="nav-li-space">
+                </li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="#">회원탈퇴</a></li>
+                <li>
+                    <hr class="nav-li-space">
+                </li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/logout/">로그아웃</a></li>
+                {% else %}
+                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/login/">로그인</a></li>
+                <li>
+                    <hr class="nav-li-space">
+                </li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/signup/">회원가입</a></li>
+                {% endif %}
+            </ul>
             <div class="right-menu">
                 {% if user.is_authenticated %}
                 <div class="mypage-wrapper">
