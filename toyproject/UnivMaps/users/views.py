@@ -8,6 +8,8 @@ from re import compile, match
 from urllib.parse import urlparse
 from django.http import JsonResponse
 from axes.models import AccessAttempt
+import random
+import string
 
 
 def signup(request):
@@ -125,6 +127,27 @@ def logout(request):
 
 def findpasswd(request):
     data = {}
+    if request.method == "POST":
+        username = request.POST["username"]
+        email = request.POST["email"]
+        try:
+            user = User.objects.get(username=username, email=email)
+        except User.DoesNotExist:
+            user = None
+
+        if user:
+            new_passwd = "".join(
+                random.SystemRandom().choice(string.ascii_letters + string.digits)
+                for _ in range(random.randint(8, 20))
+            )
+            user.set_password(new_passwd)
+            user.save()
+            msg = "비밀번호를 초기화 했습니다. 초기화 비밀번호는 " + new_passwd + " 입니다."
+        else:
+            msg = "일치하는 계정이 없습니다."
+
+        data.update({"msg": msg})
+
     return render(request, "users/findpasswd.html", data)
 
 

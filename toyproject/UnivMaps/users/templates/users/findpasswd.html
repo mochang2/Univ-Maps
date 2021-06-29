@@ -1,4 +1,6 @@
 {% load static %}
+<!-- 비번 찾기 템플릿 찾아서 변경하기 -->
+
 
 <!DOCTYPE html>
 
@@ -9,6 +11,7 @@
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
     <title>비밀번호찾기</title>
     <link rel="stylesheet" type="text/css" href="{% static 'users/css/findpasswd.css' %}">
+    <script type="text/javascript" src="{% static 'users/js/findpasswd.js' %}"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
@@ -29,13 +32,18 @@
                         {% csrf_token %}
                         <div class="login-field">
                             <i class="login-icon fas fa-user"></i>
-                            <input type="text" class="login-input" placeholder="아이디" name="username">
+                            <input type="text" class="login-input" placeholder="아이디" name="username" required>
                         </div>
                         <div class="login-field">
                             <i class="login-icon fas fa-lock"></i>
-                            <input type="email" class="login-input" placeholder="이메일" name="email">
+                            <input type="email" class="login-input" placeholder="이메일" name="email" required>
                             <br>
                         </div>
+                        {% if msg %}
+                        <script>
+                            alert("{{ msg }}");
+                        </script>
+                        {% endif %}
                         <button class="button login-submit">
                             <div class="login-error-wrapper">
                                 <span class="button-text">비밀번호 재설정</span>
