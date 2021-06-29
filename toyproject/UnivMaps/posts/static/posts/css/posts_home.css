@@ -64,16 +64,18 @@ body{
     left: 30px;
     top: 28px;
 }
-.navbar-menus{
-
+.nav-li-space-wrapper{
+    position: relative;
+    left: -30px;
+    width: 1280px;
 }
 .nav-li-space{
     margin: 0;
-    background-color: red;
+    background-color: white;
 }
 .navbar-menuitem{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .right-menu{

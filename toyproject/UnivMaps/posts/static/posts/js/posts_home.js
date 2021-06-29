@@ -1,6 +1,7 @@
 (function (window, document, undefined) {
     window.onload = function () {
-        navBarMenuShow()
+        navBarMenuShowAndHide()
+        navBarMenuHideWhenWindowBecomesBig()
         dropDownMenuShow()
 
         //우클릭 방지 + 더블클릭 방지 + 드래그 방지
@@ -11,24 +12,43 @@
         preventCtrlSU()
     }
 
-    function navBarMenuShow() {
+    function navBarMenuShowAndHide() {
         try {
             const abbreviatedMenu = document.querySelector(".abbreviated-menu")
             const navBarWrapper = document.querySelector(".navbar-wrapper")
             const aboveMenuWrapper = document.querySelector(".above-menu-wrapper")
+            const navbarMenus = document.querySelectorAll(".navbar-menus")
+            let aboveMenuWrapperHeight
 
             abbreviatedMenu.addEventListener("click", (Event) => {
                 if (navBarWrapper.style.display == "none" || navBarWrapper.style.display == "") {
                     navBarWrapper.style.display = "block"
-                    aboveMenuWrapper.style.height = "100px"
+                    aboveMenuWrapperHeight = 28 + 25 * navbarMenus.length + 1 // +1 is for spare
+                    aboveMenuWrapper.style.height = aboveMenuWrapperHeight.toString() + "px"
+                    // 여기 부분 손 봐야됨 + block display될 때 디자인(색깔 등) 더 손 보기
                 }
                 else if (navBarWrapper.style.display == "block") {
                     navBarWrapper.style.display = "none"
                     aboveMenuWrapper.style.height = "28px"
                 }
             })
-
         } catch (err) { console.log("Window size is still big to show abbreviated menu.") }
+    }
+
+    function navBarMenuHideWhenWindowBecomesBig() {
+        window.addEventListener("resize", (Event) => {
+            try {
+                const aboveMenuWrapper = document.querySelector(".above-menu-wrapper")
+                const navBarWrapper = document.querySelector(".navbar-wrapper")
+
+                if (aboveMenuWrapper.offsetWidth > 1280) {
+                    navBarWrapper.style.display = "none"
+                    aboveMenuWrapper.style.height = "28px"
+                }
+            } catch (err) {
+                console.log("Window size is samll to show navbar")
+            }
+        })
     }
 
     function dropDownMenuShow() {

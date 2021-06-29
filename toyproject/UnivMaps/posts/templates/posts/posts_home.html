@@ -34,18 +34,24 @@
             </button>
             <ul class="navbar-wrapper">
                 {% if user.is_authenticated %}
+                <li class="nav-li-space-wrapper">
+                    <hr class="nav-li-space">
+                </li>
                 <li class="navbar-menus"><a class="navbar-menuitem" href="#">비번변경</a></li>
-                <li>
+                <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
                 <li class="navbar-menus"><a class="navbar-menuitem" href="#">회원탈퇴</a></li>
-                <li>
+                <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
                 <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/logout/">로그아웃</a></li>
                 {% else %}
+                <li class="nav-li-space-wrapper">
+                    <hr class="nav-li-space">
+                </li>
                 <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/login/">로그인</a></li>
-                <li>
+                <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
                 <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/signup/">회원가입</a></li>
