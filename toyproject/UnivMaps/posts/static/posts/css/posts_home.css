@@ -61,8 +61,8 @@ body{
     padding: 0;
     margin: 0;
     position: absolute;
-    left: 30px;
     top: 28px;
+    background-color: #2E85FF;
 }
 .nav-li-space-wrapper{
     position: relative;
@@ -72,6 +72,10 @@ body{
 .nav-li-space{
     margin: 0;
     background-color: white;
+}
+.navbar-menus{
+    position: relative;
+    left: 30px;
 }
 .navbar-menuitem{
     text-decoration: none;
