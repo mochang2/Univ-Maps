@@ -176,3 +176,11 @@ def checkifIDduplicated(request):
 # 이 함수와 settings.py의 AXES_LOCKOUT_CALLABLE 변수를 통해 락 메시지 커스터마이징 가능
 # def lockout(request, credentials, *args, **kwargs):
 #     return JsonResponse({"status": "Locked out due to too many login failures"}, status=403)
+
+
+def changepasswd(request):
+    data = {}
+    if request.method == "POST":
+        pass
+
+    return render(request, "users/changepasswd.html", data)

@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>비밀번호변경</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/changepasswd.css' %}">
+    <script type="text/javascript" src="{% static 'users/js/changepasswd.js' %}"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="above-menu-wrapper">
+            <div class="dot-wrapper" onclick="location.href='/';">
+                <div class="red-dot dot"></div>
+                <div class="yellow-dot dot"></div>
+                <div class="green-dot dot"></div>
+            </div>
+        </div>
+
+        <div class="below-container">
+            비밀번호변경
+        </div> <!-- below-container -->
+    </div><!-- wrapper -->
+</body>
+
+</html>

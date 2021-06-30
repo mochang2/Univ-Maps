@@ -27,17 +27,13 @@
 
             <button class="abbreviated-menu" type="button" name="abbreviated-menu">
                 <i class="fas fa-bars"></i>
-                <!-- 이거 누르면 로그인, 회원가입 또는
-                    회원탈퇴, 비번변경, 로그아웃 메뉴 나오게 하기 
-                얘는 display가 바뀌어서 화면 전체가 움직인다면
-                메뉴 나오면 점 세 개 사라지게 하자(아님 아예 위 메뉴판이 사라지게) -->
             </button>
             <ul class="navbar-wrapper">
                 {% if user.is_authenticated %}
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
-                <li class="navbar-menus"><a class="navbar-menuitem" href="#">비번변경</a></li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/changepasswd/">비번변경</a></li>
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
@@ -64,7 +60,7 @@
                     <div class="menuLink mypage">{{ user.username }}님</div>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown-wrapper">
-                        <li class="dropdown-menus"><a class="dropdown-menuitem" href="#">비번변경</a></li>
+                        <li class="dropdown-menus"><a class="dropdown-menuitem" href="/auth/changepasswd/">비번변경</a></li>
                         <li>
                             <hr class="li-space">
                         </li>
