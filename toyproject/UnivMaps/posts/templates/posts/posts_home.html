@@ -33,7 +33,7 @@
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
-                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/changepasswd/">비번변경</a></li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="{% url 'users:changepasswd' %}">비번변경</a></li>
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
@@ -41,16 +41,16 @@
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
-                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/logout/">로그아웃</a></li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="{% url 'users:logout' %}">로그아웃</a></li>
                 {% else %}
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
-                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/login/">로그인</a></li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="{% url 'users:login' %}">로그인</a></li>
                 <li class="nav-li-space-wrapper">
                     <hr class="nav-li-space">
                 </li>
-                <li class="navbar-menus"><a class="navbar-menuitem" href="/auth/signup/">회원가입</a></li>
+                <li class="navbar-menus"><a class="navbar-menuitem" href="{% url 'users:signup' %}">회원가입</a></li>
                 {% endif %}
             </ul>
 
@@ -60,7 +60,8 @@
                     <div class="menuLink mypage">{{ user.username }}님</div>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown-wrapper">
-                        <li class="dropdown-menus"><a class="dropdown-menuitem" href="/auth/changepasswd/">비번변경</a></li>
+                        <li class="dropdown-menus"><a class="dropdown-menuitem"
+                                href="{% url 'users:changepasswd' %}">비번변경</a></li>
                         <li>
                             <hr class="li-space">
                         </li>
@@ -68,14 +69,14 @@
                     </ul>
                 </div>
                 <div class="logout-wrapper">
-                    <a class="menuLink logout" href="/auth/logout/">로그아웃</a>
+                    <a class="menuLink logout" href="{% url 'users:logout' %}">로그아웃</a>
                 </div>
                 {% else %}
                 <div class="login-wrapper">
-                    <a class="menuLink login" href="/auth/login/">로그인</a>
+                    <a class="menuLink login" href="{% url 'users:login' %}">로그인</a>
                 </div>
                 <div class="signup-wrapper">
-                    <a class="menuLink signup" href="/auth/signup/">회원가입</a>
+                    <a class="menuLink signup" href="{% url 'users:signup' %}">회원가입</a>
                 </div>
                 {% endif %}
             </div>

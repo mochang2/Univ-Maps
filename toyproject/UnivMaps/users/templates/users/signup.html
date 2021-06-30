@@ -53,8 +53,8 @@
                 <img src="{% static 'users/images/signup_success_removebg.png' %}" alt="하이리온"
                     class="signup-success-img">
                 <div class="btn-wrapper">
-                    <a class="login-btn btn" href="/auth/login/">로그인하기</a>
-                    <a class="gopost-btn btn" href="/post/">게시판으로</a>
+                    <a class="login-btn btn" href="{% url 'users:login' %}">로그인하기</a>
+                    <a class="gopost-btn btn" href="{% url 'posts:posts_home' %}">게시판으로</a>
                 </div>
             </div>
 
