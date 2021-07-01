@@ -23,7 +23,42 @@
         </div>
 
         <div class="below-container">
-            비밀번호변경
+            <div class="container">
+                <div class="login-container">
+                    {% if error %}
+                    <div class="error-message">
+                        {{error}}
+                    </div>
+                    {% endif %}
+                    <div class="login-title">
+                        Change Password
+                    </div>
+                    <form method="POST" class="login-form">
+                        {% csrf_token %}
+
+                        <div class="login-input-container">
+                            <div class="username-form-text">Origin Password</div>
+                            <div class="input-container">
+                                <input class="login-input" name="origin-passwd" type="password" required>
+                            </div>
+
+                            <div class="password-form-text"> New Password</div>
+                            <div class="input-container">
+                                <input class="login-input" name="new-passwd" type="password" required>
+                            </div>
+                            <!-- js로 이거에 대한 패스워드 검증 필요 -->
+                            <!-- 디자인 설계, 회원가입2의 폼을 가져오자 -->
+                            <div class="confirm-password-form-text">Confirm Password</div>
+                            <div class="input-container">
+                                <input class="login-input" name="new-passwd-confirm" type="password" required>
+                            </div>
+                        </div>
+                        <div class="login-btn-container">
+                            <input type="submit" class="login-btn" value="Submit">
+                        </div>
+                </div>
+                </form>
+            </div>
         </div> <!-- below-container -->
     </div><!-- wrapper -->
 </body>

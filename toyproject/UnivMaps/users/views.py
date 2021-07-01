@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from axes.models import AccessAttempt
 import random
 import string
+from django.contrib.auth.hashers import check_password
 
 
 def signup(request):
@@ -181,6 +182,25 @@ def checkifIDduplicated(request):
 def changepasswd(request):
     data = {}
     if request.method == "POST":
-        pass
+        current_passwd = request.POST.get("origin-passwd", None)
+        user = request.user
+
+        if check_password(current_passwd, user.password):
+            # 백엔드에서 다시 패스워드 유효성 검증 필요
+            new_passwd = request.POST.get("new-passwd", None)
+            new_passwd_confirm = request.POST.get("new-passwd-confirm", None)
+            if new_passwd == new_passwd_confirm:
+                user.set_password(new_passwd)
+                user.save()
+                auth_login(
+                    request, user, backend="django.contrib.auth.backends.ModelBackend"
+                )
+                return redirect("posts:posts_home")
+            else:
+                error = "새 비밀번호가 일치하지 않습니다."
+                data.update({"error": error})
+        else:
+            error = "현재 비밀번호가 일치하지 않습니다."
+            data.update({"error": error})
 
     return render(request, "users/changepasswd.html", data)
