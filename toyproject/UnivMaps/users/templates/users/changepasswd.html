@@ -22,6 +22,7 @@
         </div>
     </div>
 
+    {% if user.is_authenticated %}
     <div class="below-container">
         <div class="container">
             <div class="change-passwd-title">
@@ -41,8 +42,6 @@
                 <input required name="new-passwd" type="password" minlength="8" maxlength="20" id="new-passwd"
                     class="input-box" />
                 <div class="warning-passwd-validation">비밀번호 규칙에 맞게 작성해주세요</div>
-                <!-- js로 이거에 대한 패스워드 유효성 검증 필요 -->
-                <!-- 디자인 설계, 회원가입2의 폼을 가져오자 -->
 
                 <p class="change-passwd-label">새 비밀번호 확인</p>
                 <input required name="new-passwd-confirm" type="password" minlength="8" maxlength="20"
@@ -50,12 +49,18 @@
                 <div class="warning-passwd-confirm">비밀번호가 일치하지 않습니다</div>
 
                 <div class="btn-wrapper">
-                    <input type="submit" class="change-btn btn" value="변경하기" id="signup-btn"></button>
+                    <input type="submit" class="change-btn btn" value="변경하기" id="change-btn"></button>
                     <a class="goback-btn btn">변경취소</a>
                 </div>
             </form>
         </div> <!-- container -->
     </div> <!-- below-container -->
+    {% else %}
+
+    <div class="unauthorized-access">로그인하지 않고 URL로 접근하지 마세요.</div>
+    <a class="unauthorized-access-goback-btn" href="{% url 'posts:posts_home' %}">게시판 홈페이지로 돌아가기</a>
+
+    {% endif %}
 
 </body>
 

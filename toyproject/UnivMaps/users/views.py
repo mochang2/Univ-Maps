@@ -184,31 +184,29 @@ def changepasswd(request):
     if request.method == "POST":
         current_passwd = request.POST.get("origin-passwd", None)
         user = request.user
-
-        # passwd_rule = compile(
-        #         "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$"
-        #     )
-        # passwd_validation = passwd_rule.match(password)
-        # if passwd_validation == None or password != confirm_password:
-        #     return HttpResponseBadRequest(
-        #         "데이터 변조가 의심됩니다.\
-        #         안전한 환경에서 다시 시도해주세요."
-        #     )
+        passwd_rule = compile(
+            "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$"
+        )
 
         if check_password(current_passwd, user.password):
             # 백엔드에서 다시 패스워드 유효성 검증 필요
             new_passwd = request.POST.get("new-passwd", None)
             new_passwd_confirm = request.POST.get("new-passwd-confirm", None)
-            if new_passwd == new_passwd_confirm:
+            passwd_validation = passwd_rule.match(current_passwd)
+
+            if passwd_validation == None or new_passwd != new_passwd_confirm:
+                return HttpResponseBadRequest(
+                    "데이터 변조가 의심됩니다.\
+                안전한 환경에서 다시 시도해주세요."
+                )
+            else:
                 user.set_password(new_passwd)
                 user.save()
                 auth_login(
                     request, user, backend="django.contrib.auth.backends.ModelBackend"
                 )
                 return redirect("posts:posts_home")
-            else:
-                error = "새 비밀번호가 일치하지 않습니다."
-                data.update({"error": error})
+
         else:
             error = "현재 비밀번호가 일치하지 않습니다."
             data.update({"error": error})
