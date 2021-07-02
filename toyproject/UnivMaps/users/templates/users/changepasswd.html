@@ -13,54 +13,50 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="above-menu-wrapper">
-            <div class="dot-wrapper" onclick="location.href='/';">
-                <div class="red-dot dot"></div>
-                <div class="yellow-dot dot"></div>
-                <div class="green-dot dot"></div>
-            </div>
+
+    <div class="above-menu-wrapper">
+        <div class="dot-wrapper" onclick="location.href='/';">
+            <div class="red-dot dot"></div>
+            <div class="yellow-dot dot"></div>
+            <div class="green-dot dot"></div>
         </div>
+    </div>
 
-        <div class="below-container">
-            <div class="container">
-                <div class="login-container">
-                    {% if error %}
-                    <div class="error-message">
-                        {{error}}
-                    </div>
-                    {% endif %}
-                    <div class="login-title">
-                        Change Password
-                    </div>
-                    <form method="POST" class="login-form">
-                        {% csrf_token %}
-
-                        <div class="login-input-container">
-                            <div class="username-form-text">Origin Password</div>
-                            <div class="input-container">
-                                <input class="login-input" name="origin-passwd" type="password" required>
-                            </div>
-
-                            <div class="password-form-text"> New Password</div>
-                            <div class="input-container">
-                                <input class="login-input" name="new-passwd" type="password" required>
-                            </div>
-                            <!-- js로 이거에 대한 패스워드 유효성 검증 필요 -->
-                            <!-- 디자인 설계, 회원가입2의 폼을 가져오자 -->
-                            <div class="confirm-password-form-text">Confirm Password</div>
-                            <div class="input-container">
-                                <input class="login-input" name="new-passwd-confirm" type="password" required>
-                            </div>
-                        </div>
-                        <div class="login-btn-container">
-                            <input type="submit" class="login-btn" value="Submit">
-                        </div>
-                </div>
-                </form>
+    <div class="below-container">
+        <div class="container">
+            <div class="change-passwd-title">
+                비밀번호 변경
             </div>
-        </div> <!-- below-container -->
-    </div><!-- wrapper -->
+
+            <form action="" method="POST" enctype="application/x-www-form-urlencoded" id="change-passwd-form">
+                {% csrf_token %}
+                <p class="change-passwd-label">현재 비밀번호(공백문자 제외 8~20자)<br />(대소문자, 숫자, 특수문자 각각 1개 이상 포함)</p>
+                <input required name="origin-passwd" type="password" minlength="8" maxlength="20" id="signup-passwd"
+                    class="input-box" />
+                {% if error %}
+                <div class="wrong-current-passwd">{{ error }}</div>
+                {% endif %}
+
+                <p class="change-passwd-label">새 비밀번호</p>
+                <input required name="new-passwd" type="password" minlength="8" maxlength="20" id="new-passwd"
+                    class="input-box" />
+                <div class="warning-passwd-validation">비밀번호 규칙에 맞게 작성해주세요</div>
+                <!-- js로 이거에 대한 패스워드 유효성 검증 필요 -->
+                <!-- 디자인 설계, 회원가입2의 폼을 가져오자 -->
+
+                <p class="change-passwd-label">새 비밀번호 확인</p>
+                <input required name="new-passwd-confirm" type="password" minlength="8" maxlength="20"
+                    id="new-passwd-confirm" class="input-box" />
+                <div class="warning-passwd-confirm">비밀번호가 일치하지 않습니다</div>
+
+                <div class="btn-wrapper">
+                    <input type="submit" class="change-btn btn" value="변경하기" id="signup-btn"></button>
+                    <a class="goback-btn btn" herf="{% url 'posts:posts_home' %}">변경취소</a>
+                </div>
+            </form>
+        </div> <!-- container -->
+    </div> <!-- below-container -->
+
 </body>
 
 </html>

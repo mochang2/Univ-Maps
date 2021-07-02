@@ -185,6 +185,16 @@ def changepasswd(request):
         current_passwd = request.POST.get("origin-passwd", None)
         user = request.user
 
+        # passwd_rule = compile(
+        #         "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$"
+        #     )
+        # passwd_validation = passwd_rule.match(password)
+        # if passwd_validation == None or password != confirm_password:
+        #     return HttpResponseBadRequest(
+        #         "데이터 변조가 의심됩니다.\
+        #         안전한 환경에서 다시 시도해주세요."
+        #     )
+
         if check_password(current_passwd, user.password):
             # 백엔드에서 다시 패스워드 유효성 검증 필요
             new_passwd = request.POST.get("new-passwd", None)

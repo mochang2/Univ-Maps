@@ -14,7 +14,7 @@ body{
     display:flex;
     justify-content: space-between;
 }
-/* 메인 페이지로 돌아가는 기능 */
+
 .dot-wrapper{
     margin-left: 1.6rem;
     width: 72px;
