@@ -81,15 +81,18 @@ body{
 }
 
 /* 에러 표시 */
+.wrong-current-passwd{
+    color: red;
+}
 .warning-passwd-validation{
     display: none;
     color: red;
-    font-size: 12px;
+    font-size: 16px;
 }
 .warning-passwd-confirm{
     display: none;
     color: red;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 
@@ -145,5 +148,15 @@ body{
 
     .change-passwd-label{
         font-size: 16px;
+    }
+
+    .wrong-current-passwd{
+        font-size: 12px;
+    }
+    .warning-passwd-validation{
+        font-size: 12px;
+    }
+    .warning-passwd-confirm{
+        font-size: 12px;
     }
 }
